@@ -27,12 +27,11 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
         page_head = '''<!DOCTYPE HTML>
                       <html>
                         <head>
-                           <title>Simple Form</title>
+                            <title>Simple Form</title>
                         </head>
                         <body>'''
-                            page_body = '''<form method="GET" action="" >
-                                <h1>Register</h1>
-                                <label>Name: </label><input type="text" name="user" />
+                            page_body ='''<form method="GET" action="" >
+                               <label>Name: </label><input type="text" name="user" />
                                 <label>Address: </label><input type="text" name="address" />
                                 <label>Phone: </label><input type="text" name="phone" />
                                 <label>Email: </label><input type="text" name="email" />
@@ -40,17 +39,21 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                                 <input type="submit" value="Submit"/>'''
                             page_close = '''
                             </form>
+
                         </body>
                       </html>'''
-        if self.request.GET:#condition to execute next line
+        if self.request.GET:#condition satified next line printed
            user = self.request.GET['user']#request information from the server
            address = self.request.GET['address']#request information from the server
            phone = self.request.GET['phone']#request information from the server
            email = self.request.GET['email']#request information from the server
            password = self.request.GET['password']#request information from the server
-        self.response.write(page_head + user + page_body + page_close)#print the information out
-        else:
-        self.response.write(page_head + page_body + page_close)#print the information out
+        self.response.write(page_head + user + '' + page_close)
+        else:#condition not satisfied, next line print out
+        self.response.write(page_head + page_body + page_close)#print out the form
+
+
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
