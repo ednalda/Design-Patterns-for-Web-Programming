@@ -24,33 +24,43 @@ import webapp2  # use the webapp2 library
 
 class MainHandler(webapp2.RequestHandler): #declaring a class
     def get(self):  #function that starts everything. Catalyst
-        page_head = '''<!DOCTYPE HTML>
+        page = '''<!DOCTYPE HTML>
                       <html>
                         <head>
                             <title>Simple Form</title>
                         </head>
-                        <body>'''
-                            page_body ='''<form method="GET" action="" >
-                               <label>Name: </label><input type="text" name="user" />
-                                <label>Address: </label><input type="text" name="address" />
-                                <label>Phone: </label><input type="text" name="phone" />
-                                <label>Email: </label><input type="text" name="email" />
-                                <label>Password: </label><input type="text" name="password" />
-                                <input type="submit" value="Submit"/>'''
-                            page_close = '''
+                        <body>
+                        <h1>Register to post your Add</h1>
+                            <form method="GET" action="" >
+                               <label>Name: </label><br/><input type="text" name="user" /><br />
+                                <label>Address: </label><br/><input type="text" name="address" /><br />
+                                <label>Phone: </label><br/><input type="text" name="phone" /><br /><br /><br />
+                                <label>Where do you want your add appear? </label><br />
+                                <input type="checkbox" name="orlando" value="orlando">Orlando<br />
+                                <input type="checkbox" name="miami" value="miami">Miami<br   />
+                                <label>Add </label><br/><input type="text" name="add" /><br /><br /><br />
+                                <label>Email: </label><br/><input type="text" name="email" /><br />
+                                <label>Password: </label><br/><input type="text" name="password" /><br /><br /><br />
+                                <a href="?email=marketing@add.com&user=marketing">Marketing Manager</a><br />
+                                <a href="?email=customer@add.com$user=customer">Customer Service</a><br /><br /><br />
+                                <input type="submit" value="Submit"/>
                             </form>
-
                         </body>
                       </html>'''
-        if self.request.GET:#condition satified next line printed
-           user = self.request.GET['user']#request information from the server
-           address = self.request.GET['address']#request information from the server
-           phone = self.request.GET['phone']#request information from the server
-           email = self.request.GET['email']#request information from the server
-           password = self.request.GET['password']#request information from the server
-        self.response.write(page_head + user + '' + page_close)
-        else:#condition not satisfied, next line print out
-        self.response.write(page_head + page_body + page_close)#print out the form
+
+        if self.request.GET: #requesting from server
+        user = self.request.GET['user']
+        address= self.request.GET['address']
+        phone= self.request.GET['phone']
+        orlando = self.request.GET['orlando']
+        miami = self.request.GET['miami']
+        email = self.request.GET['email']
+        password = self.request.GET['password']
+        self.response.write(user)
+        else:
+        self.response(page)
+
+
 
 
 
