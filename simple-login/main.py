@@ -49,13 +49,13 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                       </html>'''
 
         if self.request.GET: #requesting from server
-        user = self.request.GET['user']
-        address= self.request.GET['address']
-        phone= self.request.GET['phone']
-        orlando = self.request.GET['orlando']
-        miami = self.request.GET['miami']
-        email = self.request.GET['email']
-        password = self.request.GET['password']
+           user = self.request.GET['user']
+           address= self.request.GET['address']
+           phone= self.request.GET['phone']
+           orlando = self.request.GET['orlando']
+           miami = self.request.GET['miami']
+           email = self.request.GET['email']
+           password = self.request.GET['password']
         self.response.write(user)
         else:
         self.response(page)
