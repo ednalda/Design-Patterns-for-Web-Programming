@@ -31,13 +31,23 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                         </head>
                         <body>
                             <form method="GET" action="" >
+                                <h1>Register</h1>
                                 <label>Name: </label><input type="text" name="user" />
+                                <label>Address: </label><input type="text" name="address" />
+                                <label>Phone: </label><input type="text" name="phone" />
                                 <label>Email: </label><input type="text" name="email" />
+                                <label>Password: </label><input type="text" name="password" />
                                 <input type="submit" value="Submit"/>
                             </form>
                         </body>
                       </html>'''
-        self.response.write(page)
+        if self.request.GET:#condition to execute next line
+           user = self.request.GET['user'] #stores information from the form
+           address = self.request.GET['address']
+           phone = self.request.GET['phone']
+           email = self.request.GET['email']
+           password = self.request.GET['password']
+        self.response.write(page)#print the information out
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
