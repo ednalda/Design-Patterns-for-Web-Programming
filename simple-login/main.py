@@ -24,14 +24,14 @@ import webapp2  # use the webapp2 library
 
 class MainHandler(webapp2.RequestHandler): #declaring a class
     def get(self):  #function that starts everything. Catalyst
-        page = '''<!DOCTYPE HTML>
+        page_head = '''<!DOCTYPE HTML>
                       <html>
                         <head>
                             <title>Simple Form</title>
                         </head>
-                        <body>
-                        <h1>Register to post your Add</h1>
-                            <form method="GET" action="" >
+                        <body> '''
+                            page_body=''' <form method="GET" action="" >
+                               <h1>Register to post your Add</h1>
                                <label>Name: </label><br/><input type="text" name="user" /><br />
                                 <label>Address: </label><br/><input type="text" name="address" /><br />
                                 <label>Phone: </label><br/><input type="text" name="phone" /><br /><br /><br />
@@ -43,23 +43,23 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                                 <label>Password: </label><br/><input type="text" name="password" /><br /><br /><br />
                                 <a href="?email=marketing@add.com&user=marketing">Marketing Manager</a><br />
                                 <a href="?email=customer@add.com$user=customer">Customer Service</a><br /><br /><br />
-                                <input type="submit" value="Submit"/>
+                                <input type="submit" value="Submit"/>'''
+                            page_close = '''
                             </form>
                         </body>
                       </html>'''
 
-        if self.request.GET: #requesting from server
-           user = self.request.GET['user']
-           address= self.request.GET['address']
-           phone= self.request.GET['phone']
-           orlando = self.request.GET['orlando']
-           miami = self.request.GET['miami']
-           email = self.request.GET['email']
-           password = self.request.GET['password']
-        self.response.write(user)
-        else:
-        self.response(page)
-
+        if self.request.GET: #stablish condition
+           user = self.request.GET['user']#condition true
+           address= self.request.GET['address']#condition true
+           phone= self.request.GET['phone']#condition true
+           orlando = self.request.GET['orlando']#condition true
+           miami = self.request.GET['miami']#condition true
+           email = self.request.GET['email']#condition true
+           password = self.request.GET['password']#condition true
+        self.response.write(page_head + user + '' + page_close)#all condition are true, print
+        else:if #if condition above not satisfied, print next line
+        self.response(page_body)#print out page
 
 
 
