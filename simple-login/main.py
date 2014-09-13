@@ -38,8 +38,8 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                          <label style="color: white">Address: </label><br/><input type="text" name="address" style="width:100%" /><br />
                          <label style="color: white">Phone: </label><br/><input type="text" name="phone" style="width:100%" /><br /><br /><br />
                          <label style="color: white">Where do you want your add appear? </label><br />
-                         <input type="checkbox" name="orlando" value ="orlando" style="color: white">Orlando<br />
-                         <input type="checkbox" name="miami" value="miami">Miami<br   />
+                         <input type="checkbox" name="city" value ="orlando" style="color: white">Orlando<br />
+                         <input type="checkbox" name="city" value="miami">Miami<br   />
                          <label style="color: white">Add </label><br/><input type="text" name="add" style="width:100%" /><br /><br /><br />
                          <label style="color: white">Email: </label><br/><input type="text" name="email" style="width:100%" /><br />
                          <label style="color: white">Password: </label><br/><input type="text" name="password" style="width:100%" /><br /><br /><br />
@@ -56,13 +56,14 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
            user = self.request.GET['user']#condition true
            address= self.request.GET['address']#condition true
            phone= self.request.GET['phone']#condition true
-           orlando = self.request.GET['orlando']#condition true
-           miami = self.request.GET['miami']#condition true
+           checkbox = self.request.GET['city']#condition true
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
-           self.response.write(page_head + user + '' + page_close)#all condition are true, print
+
+           self.response.write(page_head + user + '' + page_close)#all condition are true
         else: #if condition above not satisfied, print next line
            self.response.write(page_body)#print out page
+
 
 
 
