@@ -29,21 +29,23 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
     <head>
         <title>Simple Form</title>
     </head>
-    <body> '''
-        page_body=''' <form method="GET" action="" >
-                         <h1>Register to post your Add</h1>
-                         <label>Name: </label><br/><input type="text" name="user" /><br />
-                         <label>Address: </label><br/><input type="text" name="address" /><br />
-                         <label>Phone: </label><br/><input type="text" name="phone" /><br /><br /><br />
-                         <label>Where do you want your add appear? </label><br />
-                         <input type="checkbox" name="orlando" value="orlando">Orlando<br />
+    <body '''
+        page_body=''' <form method="GET" action="" style="border:1px  #f5f5dc; background-color: green; width:30%;margin:0 20%; padding:2% 20% ">
+
+                         <h1 style="font-family: arial; font-weight:bolder; color: white">Register to post your Add</h1>
+
+                         <label style="color: white">Name: </label><br/><input type="text" name="user" style="width:100%" /><br />
+                         <label style="color: white">Address: </label><br/><input type="text" name="address" style="width:100%" /><br />
+                         <label style="color: white">Phone: </label><br/><input type="text" name="phone" style="width:100%" /><br /><br /><br />
+                         <label style="color: white">Where do you want your add appear? </label><br />
+                         <input type="checkbox" name="orlando" value ="orlando" style="color: white">Orlando<br />
                          <input type="checkbox" name="miami" value="miami">Miami<br   />
-                         <label>Add </label><br/><input type="text" name="add" /><br /><br /><br />
-                         <label>Email: </label><br/><input type="text" name="email" /><br />
-                         <label>Password: </label><br/><input type="text" name="password" /><br /><br /><br />
-                         <a href="?email=marketing@add.com&user=marketing">Marketing Manager</a><br />
-                         <a href="?email=customer@add.com$user=customer">Customer Service</a><br /><br /><br />
-                         <input type="submit" value="Submit"/>'''
+                         <label style="color: white">Add </label><br/><input type="text" name="add" style="width:100%" /><br /><br /><br />
+                         <label style="color: white">Email: </label><br/><input type="text" name="email" style="width:100%" /><br />
+                         <label style="color: white">Password: </label><br/><input type="text" name="password" style="width:100%" /><br /><br /><br />
+                         <a href="?email=marketing@add.com&user=marketing" style="color: white">Marketing Manager</a><br />
+                         <a href="?email=customer@add.com$user=customer"style="color: white">Customer Service</a><br /><br /><br />
+                         <input type="submit" value="Submit" style="background-color: white; color: green; width:100%; font-family: arial; font-size: 120%" />'''
         page_close = '''
         </form>
     </body>
@@ -58,9 +60,9 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
            miami = self.request.GET['miami']#condition true
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
-        self.response.write(page_head + user + '' + page_close)#all condition are true, print
-        else:if #if condition above not satisfied, print next line
-        self.response(page_body)#print out page
+           self.response.write(page_head + user + '' + page_close)#all condition are true, print
+        else: #if condition above not satisfied, print next line
+           self.response.write(page_body)#print out page
 
 
 

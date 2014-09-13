@@ -1,0 +1,12 @@
+body{
+	width: 100%;
+	background-color: #000;
+	
+}
+
+#form{
+	width: 50%;
+	margin-left: 20%;
+	background-color: #000;
+	border: solid 1px #ff0;
+}
