@@ -30,7 +30,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
         <title>Simple Form</title>
     </head>
     <body '''
-        page_body=''' <form method="GET" action="" style="border:1px  #f5f5dc; background-color: green; width:30%;margin:0 20%; padding:2% 20% ">
+        page_body = ''' <form method="GET" action="" style="border:1px  #f5f5dc; background-color: green; width:30%;margin:0 20%; padding:2% 20% ">
 
                          <h1 style="font-family: arial; font-weight:bolder; color: white">Register to post your Add</h1>
 
@@ -44,23 +44,22 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                          <label style="color: white">Email: </label><br/><input type="text" name="email" style="width:100%" /><br />
                          <label style="color: white">Password: </label><br/><input type="text" name="password" style="width:100%" /><br /><br /><br />
                          <a href="?email=marketing@add.com&user=marketing" style="color: white">Marketing Manager</a><br />
-                         <a href="?email=customer@add.com$user=customer"style="color: white">Customer Service</a><br /><br /><br />
+                         <a href="?email=customer@add.com&user=customer"style="color: white">Customer Service</a><br /><br /><br />
                          <input type="submit" value="Submit" style="background-color: white; color: green; width:100%; font-family: arial; font-size: 120%" />'''
         page_close = '''
         </form>
     </body>
-</html>'''
+</html> '''
 
 
         if self.request.GET: #stablish condition
            user = self.request.GET['user']#condition true
-           address= self.request.GET['address']#condition true
-           phone= self.request.GET['phone']#condition true
-           checkbox = self.request.GET['city']#condition true
+           address = self.request.GET['address']#condition true
+           phone = self.request.GET['phone']#condition true
+           checkbox  = self.request.GET['city']#condition true
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
-
-           self.response.write(page_head + user + '' + page_close)#all condition are true
+           self.response.write('HELLO     ' + user  + '  ' +  email + page_close)#all condition are true
         else: #if condition above not satisfied, print next line
            self.response.write(page_body)#print out page
 
