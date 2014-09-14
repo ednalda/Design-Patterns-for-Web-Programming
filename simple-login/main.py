@@ -44,7 +44,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                          <label style="color: white">Email: </label><br/><input type="text" name="email" style="width:100%" /><br />
                          <label style="color: white">Password: </label><br/><input type="text" name="password" style="width:100%" /><br /><br /><br />
                          <a href="?email=marketing@add.com&user=marketing" style="color: white">Marketing Manager</a><br />
-                         <a href="?email=customer@add.com&user=customer"style="color: white">Customer Service</a><br /><br /><br />
+                         <a href="?email=customer@add.com&user=customer" style="color: white">Customer Service</a><br /><br /><br />
                          <input type="submit" value="Submit" style="background-color: white; color: green; width:100%; font-family: arial; font-size: 120%" />'''
         page_close = '''
         </form>
@@ -59,7 +59,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
            checkbox  = self.request.GET['city']#condition true
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
-           self.response.write('HELLO     ' + user  + '  ' +  email + page_close)#all condition are true
+           self.response.write('HELLO!     ' + user + '  ' +  email + page_close)#all condition are true
         else: #if condition above not satisfied, print next line
            self.response.write(page_body)#print out page
 
