@@ -29,10 +29,21 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
     <head>
         <title>Simple Form</title>
     </head>
-    <body '''
-        page_body = ''' <form method="GET" action="" style="border:1px  #f5f5dc; background-color: green; width:30%;margin:0 20%; padding:2% 20% ">
+    <body> '''
+        page_body = ''' <div style="background-image: image.load(img/ocean.jpeg); background-size:100%; background-repeat: no-repeat ">
+                        <div style="background-color:#66FFFF"><h1 style="margin: 2% 0 5% 39%; padding: 2% 0  0 0; color: white "> The BoatHouse</h1>
+                        <ul style=" padding-left:10%">
+                        <li style="display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%"><a href="#">Home</a></li>
+                        <li style="display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%"><a href="#">News</a></li>
+                        <li style="display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%"><a href="#">Favorits</a></li>
+                        <li style="display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%"><a href="#">About</a></li>
+                        <li style="display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%"><a href="#">SingOut</a></li>
+                        </ul>
+                        <p style="color: white; margin: 0 10% 5% 10%; font-weight: bolder; font-size: 120%">Pre-Owner boats find in <b>The BoatHouse</b> a place 
+                        to sale your boats, exchange experience, plan your trips, check reviews, and get the laters about boat technology. </p></div>
+                         <form method="GET" action="" style="border:1px  #f5f5dc; background-color: #66FFFF; width:30%;margin:0 15%; padding:2% 20% ">
 
-                         <h1 style="font-family: arial; font-weight:bolder; color: white">Register to post your Add</h1>
+                         <h2 style=" padding: 0 0 5% 0; font-family: arial; font-weight:bolder; color: white">Register to post your Add</h1>
 
                          <label style="color: white">Name: </label><br/><input type="text" name="user" style="width:100%" /><br />
                          <label style="color: white">Address: </label><br/><input type="text" name="address" style="width:100%" /><br />
@@ -45,7 +56,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                          <label style="color: white">Password: </label><br/><input type="text" name="password" style="width:100%" /><br /><br /><br />
                          <a href="?email=marketing@add.com&user=marketing" style="color: white">Marketing Manager</a><br />
                          <a href="?email=customer@add.com&user=customer" style="color: white">Customer Service</a><br /><br /><br />
-                         <input type="submit" value="Submit" style="background-color: white; color: green; width:100%; font-family: arial; font-size: 120%" />'''
+                         <input type="submit" value="Submit" style="background-color: white; color: green; width:100%; font-family: arial; font-size: 120%" /> </div>'''
         page_close = '''
         </form>
     </body>
