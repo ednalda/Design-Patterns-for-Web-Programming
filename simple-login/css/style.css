@@ -1,0 +1,16 @@
+body{color: #fff; background-color: #000}
+
+#content{background-color:#000}
+#header{background-color:#66CCFF}
+h1{margin: 2% 0 5% 39%; padding: 2% 0  0 0; color: white;}
+ul{padding-left:10%; list-style-type: none}
+ul li{display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%}
+p{color: white; margin: 0 10% 5% 10%; font-weight: bolder; font-size: 120%}
+form{border:1px  #f5f5dc; background-color: #66CCFF; width:30%;margin:0 15%; padding:2% 20%}
+h2{padding: 0 0 5% 0; font-family: arial; font-weight:bolder; color: white}
+label {color: white}
+input{color: white}
+a{color: white}
+.submit{background-color: white; color: green; width:100%; font-family: arial; font-size: 120%} */
+
+
