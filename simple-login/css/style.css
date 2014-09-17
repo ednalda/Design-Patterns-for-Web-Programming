@@ -1,7 +1,5 @@
-body{color: #fff; background-color: #000}
-
 #content{background-color:#000}
-#header{background-color:#66CCFF}
+#header{background-color:#66CCFF} 
 h1{margin: 2% 0 5% 39%; padding: 2% 0  0 0; color: white;}
 ul{padding-left:10%; list-style-type: none}
 ul li{display: inline; background-color:white; margin-left: 2%; padding: 0 5% 0 5%}

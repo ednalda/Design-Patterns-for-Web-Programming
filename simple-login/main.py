@@ -24,13 +24,12 @@ import webapp2  # use the webapp2 library
 
 class MainHandler(webapp2.RequestHandler): #declaring a class
     def get(self):  #function that starts everything. Catalyst
-        self.title = "Welcome!"
-        self.css = "css/style.css"
+
         page_head = ''' <!DOCTYPE HTML>
 <html>
     <head>
-        <title>{self.title}</title>
-        <link href={self.css} rel="stylesheet" type="text/css" />
+        <title>"House Hunters"</title>
+        <link href="css/style.css" rel="stylesheet"  type="text/css"  />
     </head>
     <body> '''
         page_body = ''' <div id="content">
@@ -55,7 +54,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                                <label>Add</label><br/><input type="text" name="add"/><br /><br /><br />
                                <label>Email: </label><br/><input type="text" name="email" /><br />
                                <label>Password: </label><br/><input type="text" name="password" /><br /><br /><br />
-                                <input type="checkbox" name="policy" value ="policy">Agree with Policy<br /><br />
+                               <label>Agree with Policy</label><input type="checkbox" name="policy" value ="policy"><br /><br />
                                <input type="submit" value="Submit" class="submit" /> </div>'''
         page_close = '''
                            </form>
@@ -70,8 +69,8 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
            add = self.request.GET['add']
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
-           policy  = self.request.GET['policy']#condition true
-           self.response.write('HELLO!     ' + user + '  '     + address      + phone    + policy    +  email      +  password    + add        )#all condition are true
+           checkbox = self.request.GET['policy']#condition true
+           self.response.write('HELLO!  ' + user + '  '  + address + ' ' + phone + ' ' + checkbox + ' ' +  email  + ' ' +  password  + ' ' + add )#all condition are true
         else: #if condition above not satisfied, print next line
            self.response.write(page_body)#print out page
 
