@@ -1,4 +1,71 @@
 body{ 
+	color: #290029;
+    background-color:#A480A4;
+    background-image: url('../images/background.jpg');
+    background-repeat: no-repeat center;
+   
+}
+header{
+	height: 10%;
+	background-color: #3D003D;
+	width: 100%;
+	
+
+	
+
+}
+
+ul{
+	background-color: #E0CCE0;
+	list-style-type: none;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	display: inline-block;
+	
+}
+.nav{
+	width: 100%;
+	text-align: center;
+	background-image: url('../images/floral_background.jpg') ;
+	background-repeat: no-repeat;
+	margin-right: 10%;
+
+}
+nav .nav li{
+	display: inline-block;
+	text-align: center;
+	font-size: 200%;
+	padding-right: 5%;
+	
+}
+a:link{
+	text-decoration: none;
+	color: #3D003D;
+}
+a:hover{
 	color: #fff;
-    background-color: #000;
+}
+li{
+	
+}
+
+.submit{
+	
+	color: #fff ;
+	background-color: #5C005C;
+
+}
+
+h2{
+	
+	margin-right: 10%;
+}
+article{
+	margin-left: 10%;
+}
+
+footer{
+	background-color:#3D003D;
+	color: #fff;
+	text-align: center;
 }

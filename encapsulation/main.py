@@ -25,7 +25,6 @@ import webapp2
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         p = Page()
-        p.body = "you"
         self.response.write(p.print_out())
 
 class Page(object):
@@ -42,12 +41,106 @@ class Page(object):
    <body>
         """
 
-        self.body = "Hello!"
+        self.body = '''<div id = "page">
+                               <header>
+                                 <img src="images/band.jpg" class="band" />
+                                    <nav>
+                                      <ul class="nav">
+                                          <li><a href="#">Home</a></li>
+                                          <li><a href="#">Hot Deals</a></li>
+                                          <li><a href="#">Sign Out </a></li>
+                                      </ul>
+                                    </nav>
+                               </header>
+                               <div id = "content">
+                                    <article>
+                                        <ul><h2>John Miller</h2>
+                                           <li>
+                                               <p>Quiz 1: 100</p>
+                                               <p>Quiz 2: 87</p>
+                                               <p>Quiz 3: 56</p>
+                                               <p>Quiz 4: 90</p>
+                                               <p>Quiz 5: 69</p>
+                                           </li>
+                                           <li>
+                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                           </li>
+                                        </ul>
+
+                                        <ul><h2>Mary Smith</h2>
+                                             <li>
+                                               <p>Quiz 1: 100</p>
+                                               <p>Quiz 2: 87</p>
+                                               <p>Quiz 3: 56</p>
+                                               <p>Quiz 4: 90</p>
+                                               <p>Quiz 5: 69</p>
+                                           </li>
+                                           <li>
+                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                           </li>
+                                        </ul>
+
+
+
+                                        <ul><h2>Paul Peace</h2>
+                                             <li>
+                                               <p>Quiz 1: 100</p>
+                                               <p>Quiz 2: 87</p>
+                                               <p>Quiz 3: 56</p>
+                                               <p>Quiz 4: 90</p>
+                                               <p>Quiz 5: 69</p>
+                                           </li>
+                                          <li>
+                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                           </li>
+                                        </ul>
+
+
+                                        <ul>
+                                           <li><h2>Steven Woods</h2></li>
+                                             <li>
+                                               <p>Quiz 1: 100</p>
+                                               <p>Quiz 2: 87</p>
+                                               <p>Quiz 3: 56</p>
+                                               <p>Quiz 4: 90</p>
+                                               <p>Quiz 5: 69</p>
+                                             </li>
+                                          <li>
+                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                           </li>
+                                        </ul>
+
+
+
+                                        <ul><h2>Tracey Fish</h2>
+                                             <li>
+                                               <p>Quiz 1: 100</p>
+                                               <p>Quiz 2: 87</p>
+                                               <p>Quiz 3: 56</p>
+                                               <p>Quiz 4: 90</p>
+                                               <p>Quiz 5: 69</p>
+                                              </li>
+                                            <li>
+                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                           </li>
+                                        </ul>
+
+                                    </article>
+                                    <article>
+                                    </article>
+                                    <aside>
+                                    </aside>
+                               </div>
+                               <footer>
+                                  <p>footer</p>
+                               </footer> '''
         self.close = """
 
+                   </div>
    </body>
  </html>
        """
+
 
     def print_out(self):
         all = self.head + self.body + self.close

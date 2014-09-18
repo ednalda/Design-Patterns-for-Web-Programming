@@ -28,7 +28,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
         page_head = ''' <!DOCTYPE HTML>
 <html>
     <head>
-        <title>"House Hunters"</title>
+        <title>"BoatHouse"</title>
         <link href="css/style.css" rel="stylesheet"  type="text/css"  />
     </head>
     <body> '''
@@ -52,9 +52,9 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                                <label>Email: </label><br/><input type="text" name="email" class="input"/><br />
                                <label>Password: </label><br/><input type="text" name="password" class="input" /><br /><br /><br />
                                <input type="checkbox" name="policy" value ="policy"><a href="#" class="link">Agree with Policy</a><br /><br />
-                               <input type="submit" value="Submit" class="submit" /> </div>'''
+                               <input type="submit" value="Submit" class="submit" /> </form>'''
         page_close = '''
-                           </form>
+                           </div>
     </body>
 </html> '''
 
