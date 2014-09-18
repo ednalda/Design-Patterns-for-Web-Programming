@@ -54,7 +54,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                                <label>Add</label><br/><input type="text" name="add"/><br /><br /><br />
                                <label>Email: </label><br/><input type="text" name="email" /><br />
                                <label>Password: </label><br/><input type="text" name="password" /><br /><br /><br />
-                               <label>Agree with Policy</label><input type="checkbox" name="policy" value ="policy"><br /><br />
+                               <input type="checkbox" name="policy" value ="policy">Agree with Policy<br /><br />
                                <input type="submit" value="Submit" class="submit" /> </div>'''
         page_close = '''
                            </form>
