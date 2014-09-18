@@ -38,29 +38,29 @@ grade = 200
 if grade > 90:
 	college="nice"
 	print "This" + college + "is coll!"
-    else:
-	print "No cool."
-
+else:
+	   print "No cool."
+or
 	salary= 200
 if salary > 200:
-	life="good"
+	   life="good"
 	print "My life is" + life 
-	elif salary > 80
-	print "My life is ok"  
-    else:
-	print "I need to go back to school."
+elif salary > 80
+	   print "My life is ok"
+else:
+	   print "I need to go back to school."
 
 	'''
 
 	#FUNCTION
     def calcArea(h,w):
-	area = h * w
-	return area 
-	a = calcArea(50,40);
-	print "My house is " + str(a) + "sqft"
+	    area = h * w
+	    return area
+	    a = calcArea(50,40);
+	    print "My house is " + str(a) + "sqft"
 
 	#1 loop
 	a = 0
     while a<20:
-	print "The count is", a
-	a = a+1
+	    print "The count is", a
+	    a = a+1

@@ -36,30 +36,28 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                            <div id="header">
                              <h1> The BoatHouse</h1>
                              <ul>
-                               <li><a href="#">Home</a></li>
-                               <li><a href="#">News</a></li>
-                               <li><a href="#">Favorits</a></li>
-                               <li><a href="#">About</a></li>
-                               <li><a href="#">SingOut</a></li>
+                               <li><a href="#" class="link">Home</a></li>
+                               <li><a href="#" class="link">News</a></li>
+                               <li><a href="#" class="link">Favorite</a></li>
+                               <li><a href="#" class="link">About</a></li>
+                               <li><a href="#" class="link">Log On</a></li>
                              </ul>
-                           <p>Pre-Owner boats find in <b>The BoatHouse</b> a place
-                        to sale your boats, exchange experience, plan your trips, check reviews, and get the laters about boat technology.
-                           </p>
-                        </div>
+                           </div>
                            <form method="GET" action="">
                                <h2>Register to post your Add</h2>
-                               <label>Name: </label><br/><input type="text" name="user"  /><br />
-                               <label>Address: </label><br/><input type="text" name="address"  /><br />
-                               <label>Phone: </label><br/><input type="text" name="phone"  /><br /><br /><br />
-                               <label>Add</label><br/><input type="text" name="add"/><br /><br /><br />
-                               <label>Email: </label><br/><input type="text" name="email" /><br />
-                               <label>Password: </label><br/><input type="text" name="password" /><br /><br /><br />
-                               <input type="checkbox" name="policy" value ="policy">Agree with Policy<br /><br />
+                               <label>Name: </label><br/><input type="text" name="user" class="input" /><br />
+                               <label>Address: </label><br/><input type="text" name="address"  class="input" /><br />
+                               <label>Phone: </label><br/><input type="text" name="phone"   class="input"/><br /><br /><br />
+                               <label>Add</label><br/><input type="text" name="add" class="input"/><br /><br /><br />
+                               <label>Email: </label><br/><input type="text" name="email" class="input"/><br />
+                               <label>Password: </label><br/><input type="text" name="password" class="input" /><br /><br /><br />
+                               <input type="checkbox" name="policy" value ="policy"><a href="#" class="link">Agree with Policy</a><br /><br />
                                <input type="submit" value="Submit" class="submit" /> </div>'''
         page_close = '''
                            </form>
     </body>
 </html> '''
+
 
 
         if self.request.GET: #stablish condition
@@ -69,10 +67,12 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
            add = self.request.GET['add']
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
-           checkbox = self.request.GET['policy']#condition true
-           self.response.write('HELLO!  ' + user + '  '  + address + ' ' + phone + ' ' + checkbox + ' ' +  email  + ' ' +  password  + ' ' + add )#all condition are true
+           policy = self.request.GET ['policy']
+           self.response.write(page_head +  user + '  '  + address + phone +  email  +  password   + add + policy + page_body + page_close)#all condition are true
+
+
         else: #if condition above not satisfied, print next line
-           self.response.write(page_body)#print out page
+           self.response.write(page_head + page_body + page_close)#print out page
 
 
 
