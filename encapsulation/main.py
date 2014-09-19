@@ -25,7 +25,7 @@ import webapp2
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         #September delivered
-        '''s = Page()
+        s = Page()
         s.sale1 = 40
         s.sale2 = 40
         s.sale3 = 40
@@ -63,19 +63,13 @@ class MainHandler(webapp2.RequestHandler):
         m.sale3 = 50
         m.sale4 = 50
         m.sale5 = 50
-        m.__total'''
+        m.__total
 
 
 class Page(object):
     def __init__(self):
-        '''self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.__total= 0'''
-        self.__title = "Welcome!"
-        self.__css = "css/style.css"
+        self.title = "Welcome!"
+        self.css = "css/style.css"
         self.head = """
 <!DOCTYPE HTML>
  <html>
@@ -130,36 +124,29 @@ class Page(object):
  </html>
        """
 
+class delivered(object):
+    def __init__(self):
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.__total= 0
+
     def print_out(self):
         all = self.head + self.body + self.close
         all = all.format(**locals())
         return all
 
     @property
-    def title(self):
-        return self.__title
+    def total(self):
+        return self.__total
 
-    @title.setter
-    def title(self, new_title):
-        self.__title = new_title
-
-    @property
-    def css(self):
-
-    @css.setter
-    def css(self, new_css_file):
-        self.__css = new_css_file
+    @total.setter
+    def total(self):
+       return self.__total
 
 
-
-
-
-        '''if  self.request.GET:
-
-             self.response.write (self.head + self.body + self.calculate + self.close)
-        else:
-            self.response.write (self.head + self.body + self.close)
-       '''
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
