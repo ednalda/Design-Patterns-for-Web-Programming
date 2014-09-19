@@ -92,12 +92,12 @@ class Delivered(object):#class to call the attributes of objects.
     @total.setter #setter: It gives the ability to update the total monthly sales result as it need.
     def total(self, new_total):
         self._total = new_total
-        
-    def calc_total(self):#function to calculate the total sales by adding the sales together.
+
+    def calc_total(self):#function to calculate the total monthly sales by adding the sales together.
         self._total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
 
 
-        if    self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
+        if    self.calc_total().request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
               s = Delivered()
               n = Delivered()
               f = Delivered()
