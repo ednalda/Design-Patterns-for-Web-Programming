@@ -46,110 +46,113 @@ class Page(object):
                                     <nav>
                                       <ul class="nav">
                                           <li><img src="images/logo.jpg" class="logo" /></li>
-                                          <li><h1>Sweet Flower Shop</h1></li></ul>
+                                          <li><h1>Sweet Flower  Shop</h1></li>
+                                    </ul>
                                           <ul class="sub_nav">
                                              <li><a href="#">Home</a></li>
-                                             <li><a href="#">Talk to Us</a></li>
+                                             <li><a href="#">Orders</a></li>
+                                             <li><a href="#" class="active">Delivered</a></li>
                                              <li><a href="#">Hot Deals</a></li>
                                              <li><a href="#">Sign Out </a></li>
                                           </ul>
-                                      </ul>
+
                                     </nav>
                                </header>
                                <div id = "content">
                                     <article>
-                                        <ul><h2>John Miller</h2>
+                                      <ul>
+                                         <p><input type="submit" value= "September" class="submit" /></p>
+                                         <p><input type="submit" value= "November" class="submit" /></p>
+                                         <p><input type="submit" value= "Febuary" class="submit" /></p>
+                                         <p><input type="submit" value= "June" class="submit" /></p>
+                                         <p><input type="submit" value= "May" class="submit" /></p>
+                                      </ul>
+                                    </article>
+                                    <aside>
+                                    </aside>
+                               </div>
+                               '''
+
+        self.calculate = ''' <article>
+                                        <h2>Montly Expenses</h2>
+
+                                        <ul>
+
+                                           <h3>September</h3>
                                            <li>
-                                               <p>Quiz 1: 100</p>
-                                               <p>Quiz 2: 87</p>
-                                               <p>Quiz 3: 56</p>
-                                               <p>Quiz 4: 90</p>
-                                               <p>Quiz 5: 69</p>
-                                           </li>
-                                           <li>
-                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                               <p>Basket of Joy: $52.95</p>
+                                               <p>Country Basket Blooms:$57.95 </p>
+                                               <p>Summer Brights: $44.95 </p>
+                                               <p>Fashionista Blooms: 69.90</p>
+                                               <p>Garden Romance: $49.95 </p>
                                            </li>
                                         </ul>
 
-                                        <ul><h2>Mary Smith</h2>
-                                             <li>
-                                               <p>Quiz 1: 100</p>
-                                               <p>Quiz 2: 87</p>
-                                               <p>Quiz 3: 56</p>
-                                               <p>Quiz 4: 90</p>
-                                               <p>Quiz 5: 69</p>
-                                           </li>
+                                        <ul>
+                                           <h3>November</h3>
                                            <li>
-                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                               <p>Cotton Candy: $39.95</p>
+                                               <p>Roses: $43.98</p>
+                                               <p>Tulips: $56</p>
+                                               <p>Daisies: $42.80</p>
+                                               <p>Gerberas: $38.99</p>
                                            </li>
                                         </ul>
 
-
-
-                                        <ul><h2>Paul Peace</h2>
+                                        <ul>
+                                             <h3>Febuary</h3>
                                              <li>
-                                               <p>Quiz 1: 100</p>
-                                               <p>Quiz 2: 87</p>
-                                               <p>Quiz 3: 56</p>
-                                               <p>Quiz 4: 90</p>
-                                               <p>Quiz 5: 69</p>
-                                           </li>
-                                          <li>
-                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
+                                               <p>Violetas: $25.90</p>
+                                               <p>Rose beauty: $87.98</p>
+                                               <p>Regal Orchids: $56.76</p>
+                                               <p>Yellow Trio Basket: $90.58</p>
+                                               <p>Sunny Cyclamen: $69.43</p>
                                            </li>
                                         </ul>
 
 
                                         <ul>
-                                           <li><h2>Steven Woods</h2></li>
+                                             <h3>May</h3>
                                              <li>
-                                               <p>Quiz 1: 100</p>
-                                               <p>Quiz 2: 87</p>
-                                               <p>Quiz 3: 56</p>
-                                               <p>Quiz 4: 90</p>
-                                               <p>Quiz 5: 69</p>
+                                               <p>Country Basket Blooms:$57.95</p>
+                                               <p>Basket of Joy: $52.95: 87</p>
+                                               <p>Regal Orchids: $56.76</p>
+                                               <p>Summer Brights: $44.95</p>
+                                               <p>Fashionista Blooms: 69.90</p>
                                              </li>
-                                          <li>
-                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
-                                           </li>
                                         </ul>
 
 
 
-                                        <ul><h2>Tracey Fish</h2>
+                                        <ul>
+                                             <h3>June</h3>
                                              <li>
-                                               <p>Quiz 1: 100</p>
-                                               <p>Quiz 2: 87</p>
-                                               <p>Quiz 3: 56</p>
-                                               <p>Quiz 4: 90</p>
-                                               <p>Quiz 5: 69</p>
+                                               <p>Roses: $43.98</p>
+                                               <p>Regal Orchids: $56.76</p>
+                                               <p>Daisies: $42.80</p>
+                                               <p>Tulips: $56</p>
+                                               <p>Garden Romance: $49.95</p>
                                               </li>
-                                            <li>
-                                               <p>Final Grade <input type="submit" value= "Calculate" class="submit" /></p>
-                                           </li>
                                         </ul>
-
-                                    </article>
-                                    <article>
-                                    </article>
-                                    <aside>
-                                    </aside>
-                               </div>
-                               <footer>
-                                  <p>footer</p>
-                               </footer> '''
+                                </article>
+        '''
         self.close = """
+                                <footer>
+                                  <p>Sweet Flower Shop @ 2014</p>
+                               </footer>
+                       </div>
 
-                   </div>
    </body>
  </html>
        """
 
 
-    def print_out(self):
-        all = self.head + self.body + self.close
-        all = all.format(**locals())
-        return all
+    if  self.request.GET:
+
+        self.response.write (self.head + self.body + self.calculate + self.close)
+    else:
+        self.response.write (sel.head + self.body + self.close)
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
