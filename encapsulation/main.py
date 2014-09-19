@@ -43,12 +43,16 @@ class Page(object):
 
         self.body = '''<div id = "page">
                                <header>
-                                 <img src="images/band.jpg" class="band" />
                                     <nav>
                                       <ul class="nav">
-                                          <li><a href="#">Home</a></li>
-                                          <li><a href="#">Hot Deals</a></li>
-                                          <li><a href="#">Sign Out </a></li>
+                                          <li><img src="images/logo.jpg" class="logo" /></li>
+                                          <li><h1>Sweet Flower Shop</h1></li></ul>
+                                          <ul class="sub_nav">
+                                             <li><a href="#">Home</a></li>
+                                             <li><a href="#">Talk to Us</a></li>
+                                             <li><a href="#">Hot Deals</a></li>
+                                             <li><a href="#">Sign Out </a></li>
+                                          </ul>
                                       </ul>
                                     </nav>
                                </header>
