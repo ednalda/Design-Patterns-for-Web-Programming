@@ -97,15 +97,6 @@ class Delivered(object):#class to call the attributes of objects.
         self._total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
 
 
-        if    self.calc_total().request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
-              s = Delivered()
-              n = Delivered()
-              f = Delivered()
-              j = Delivered()
-              m = Delivered()
-              self.response.write(self.head + self.body + self.__total + self.close)
-        else:
-              self.response.write(self.head + self.body + self.close)
 
 
 class Page(object):
@@ -183,6 +174,21 @@ class Page(object):
  </html>
        """
 
+
+
+    def update(self):
+            self.page = self.head + self.calculate + self.close
+            self.page = self.page.format(**locals())
+
+            if  self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
+                    s = Delivered()
+                    n = Delivered()
+                    f = Delivered()
+                    j = Delivered()
+                    m = Delivered()
+            self.response.write(self.page)
+            else:
+            self.response.write(self.head + self.body + self.close)
 
 
 
