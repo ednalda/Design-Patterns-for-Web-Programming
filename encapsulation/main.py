@@ -31,7 +31,7 @@ class MainHandler(webapp2.RequestHandler):
         s.sale3 = 40
         s.sale4 = 40
         s.sale5 = 40
-        self.response.write(s.__total)
+        s.__total
         #November delivered
         n = Page ()
         n.sale1 = 50
@@ -39,7 +39,7 @@ class MainHandler(webapp2.RequestHandler):
         n.sale3 = 50
         n.sale4 = 50
         n.sale5 = 50
-        self.response.write(n.__total)
+        n.__total
         #February delivered
         f = Page ()
         f.sale1 = 50
@@ -47,7 +47,7 @@ class MainHandler(webapp2.RequestHandler):
         f.sale3 = 50
         f.sale4 = 50
         f.sale5 = 50
-        self.response.write(f.__total)
+        f.__total
         #June delivered
         J = Page ()
         j.sale1 = 50
@@ -55,7 +55,7 @@ class MainHandler(webapp2.RequestHandler):
         j.sale3 = 50
         j.sale4 = 50
         j.sale5 = 50
-        self.response.write(j.__total)
+        j.__total
         #May delivered
         m = Page ()
         m.sale1 = 50
@@ -65,6 +65,14 @@ class MainHandler(webapp2.RequestHandler):
         m.sale5 = 50
         m.__total
 
+class delivered(object):
+    def __init__(self):
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.__total= 0
 
 class Page(object):
     def __init__(self):
@@ -124,26 +132,28 @@ class Page(object):
  </html>
        """
 
-class delivered(object):
-    def __init__(self):
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.__total= 0
-
-    def print_out(self):
-        all = self.head + self.body + self.close
-        all = all.format(**locals())
-        return all
-
     @property
     def total(self):
-        self.__total = (self.sales1 + self.sales2 + self.sales3 + self.sales4 + self.sales5)
         return self.__total
 
-    
+    @total.setter
+    def total(self, new_total):
+        self.__total = new_total
+
+    def calc_total(self):
+        self.__total = (self.sales1 + self.sales2 + self.sales3 + self.sales4 + self.sales5)
+
+
+        if self.request.GET:
+              s = Page()
+              n = Page()
+              f = Page()
+              j = Page()
+              m = Page()
+           self.response.write(self.head + self.body + self.__total + self.close)
+        else:
+           self.response.write(self.head + self.body + self.close)
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
