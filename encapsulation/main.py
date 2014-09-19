@@ -83,8 +83,6 @@ class Delivered(object):#class to call the attributes of objects.
         self.sale5= 0
         self.__total= 0 #private attribute only access inside this class
 
-    def calc_total(self):#function to calculate the total sales by adding the sales together.
-        self._total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
 
     #decorators treating properties as variables
     @property #getter: to return the total sales. It's accessing the total monthly sales attribute that is private only accessed inside the class Delivered.
@@ -94,6 +92,10 @@ class Delivered(object):#class to call the attributes of objects.
     @total.setter #setter: It gives the ability to update the total monthly sales result as it need.
     def total(self, new_total):
         self._total = new_total
+        
+    def calc_total(self):#function to calculate the total sales by adding the sales together.
+        self._total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
+
 
         if    self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
               s = Delivered()
