@@ -22,56 +22,61 @@ assignment: Simple Form
 '''
 import webapp2
 
-class MainHandler(webapp2.RequestHandler):
+class  MainHandler(webapp2.RequestHandler):
     def get(self):
         #September delivered
-        s = Page()
+        s = Delivered()
         s.sale1 = 40
         s.sale2 = 40
         s.sale3 = 40
         s.sale4 = 40
         s.sale5 = 40
-        s.__total
+        s.calc_total()
+        self.response.write(s.__total)
         #November delivered
-        n = Page ()
+        n = Delivered ()
         n.sale1 = 50
         n.sale2 = 50
         n.sale3 = 50
         n.sale4 = 50
         n.sale5 = 50
-        n.__total
+        n.calc_total()
+        self.response.write(n.__total)
         #February delivered
-        f = Page ()
+        f = Delivered ()
         f.sale1 = 50
         f.sale2 = 50
         f.sale3 = 50
         f.sale4 = 50
         f.sale5 = 50
-        f.__total
+        f.calc_total()
+        self.response.write(f.__total)
         #June delivered
-        J = Page ()
+        J = Delivered ()
         j.sale1 = 50
         j.sale2 = 50
         j.sale3 = 50
         j.sale4 = 50
         j.sale5 = 50
-        j.__total
+        j.calc_total()
+        self.response.write(j.__total)
         #May delivered
-        m = Page ()
+        m = Delivered ()
         m.sale1 = 50
         m.sale2 = 50
         m.sale3 = 50
         m.sale4 = 50
         m.sale5 = 50
-        m.__total
+        m.calc_total()
+        self.response.write(m.__total)
 
-class delivered(object):
+class Delivered(object):
     def __init__(self):
         self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
-        self.sale1= 0
+        self.sale2= 0
+        self.sale3= 0
+        self.sale4= 0
+        self.sale5= 0
         self.__total= 0
 
 class Page(object):
@@ -110,7 +115,7 @@ class Page(object):
                                       <ul>
                                          <p><input type="submit" value= "September" class="submit" /></p>
                                          <p><input type="submit" value= "November" class="submit" /></p>
-                                         <p><input type="submit" value= "Febuary" class="submit" /></p>
+                                         <p><input type="submit" value= "February" class="submit" /></p>
                                          <p><input type="submit" value= "June" class="submit" /></p>
                                          <p><input type="submit" value= "May" class="submit" /></p>
                                       </ul>
@@ -120,7 +125,24 @@ class Page(object):
                                </div>
                                '''
 
-        self.calculate = '''
+        self.calculate = '''<div id = "page">
+                               <header>
+                                    <nav>
+                                      <ul class="nav">
+                                          <li><img src="images/logo.jpg" class="logo" /></li>
+                                          <li><h1>Sweet Flower  Shop</h1></li>
+                                    </ul>
+                                          <ul class="sub_nav">
+                                             <li><a href="#">Home</a></li>
+                                             <li><a href="#">Orders</a></li>
+                                             <li><a href="#" class="active">Delivered</a></li>
+                                             <li><a href="#">Hot Deals</a></li>
+                                             <li><a href="#">Sign Out </a></li>
+                                          </ul>
+
+                                    </nav>
+                               </header>
+                               <div id = "content">
         '''
         self.close = """
                                 <footer>
@@ -145,20 +167,12 @@ class Page(object):
         self.__total = (self.sales1 + self.sales2 + self.sales3 + self.sales4 + self.sales5)
 
 
-
-
-
-
-
-
-
-
         if self.request.GET:
-              s = Page()
-              n = Page()
-              f = Page()
-              j = Page()
-              m = Page()
+              s = Delivered()
+              n = Delivered()
+              f = Delivered()
+              j = Delivered()
+              m = Delivered()
            self.response.write(self.head + self.body + self.__total + self.close)
         else:
            self.response.write(self.head + self.body + self.close)
