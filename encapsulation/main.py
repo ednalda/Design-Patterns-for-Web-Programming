@@ -24,13 +24,58 @@ import webapp2
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        p = Page()
-        self.response.write(p.print_out())
+        #September delivered
+        '''s = Page()
+        s.sale1 = 40
+        s.sale2 = 40
+        s.sale3 = 40
+        s.sale4 = 40
+        s.sale5 = 40
+        print s.__total
+        #November delivered
+        n = Page ()
+        n.sale1 = 50
+        n.sale2 = 50
+        n.sale3 = 50
+        n.sale4 = 50
+        n.sale5 = 50
+        n.__total
+        #February delivered
+        f = Page ()
+        f.sale1 = 50
+        f.sale2 = 50
+        f.sale3 = 50
+        f.sale4 = 50
+        f.sale5 = 50
+        f.__total
+        #June delivered
+        J = Page ()
+        j.sale1 = 50
+        j.sale2 = 50
+        j.sale3 = 50
+        j.sale4 = 50
+        j.sale5 = 50
+        j.__total
+        #May delivered
+        m = Page ()
+        m.sale1 = 50
+        m.sale2 = 50
+        m.sale3 = 50
+        m.sale4 = 50
+        m.sale5 = 50
+        m.__total'''
+
 
 class Page(object):
     def __init__(self):
-        self.title = "Welcome!"
-        self.css = "css/style.css"
+        '''self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.sale1= 0
+        self.__total= 0'''
+        self.__title = "Welcome!"
+        self.__css = "css/style.css"
         self.head = """
 <!DOCTYPE HTML>
  <html>
@@ -73,68 +118,7 @@ class Page(object):
                                </div>
                                '''
 
-        self.calculate = ''' <article>
-                                        <h2>Montly Expenses</h2>
-
-                                        <ul>
-
-                                           <h3>September</h3>
-                                           <li>
-                                               <p>Basket of Joy: $52.95</p>
-                                               <p>Country Basket Blooms:$57.95 </p>
-                                               <p>Summer Brights: $44.95 </p>
-                                               <p>Fashionista Blooms: 69.90</p>
-                                               <p>Garden Romance: $49.95 </p>
-                                           </li>
-                                        </ul>
-
-                                        <ul>
-                                           <h3>November</h3>
-                                           <li>
-                                               <p>Cotton Candy: $39.95</p>
-                                               <p>Roses: $43.98</p>
-                                               <p>Tulips: $56</p>
-                                               <p>Daisies: $42.80</p>
-                                               <p>Gerberas: $38.99</p>
-                                           </li>
-                                        </ul>
-
-                                        <ul>
-                                             <h3>Febuary</h3>
-                                             <li>
-                                               <p>Violetas: $25.90</p>
-                                               <p>Rose beauty: $87.98</p>
-                                               <p>Regal Orchids: $56.76</p>
-                                               <p>Yellow Trio Basket: $90.58</p>
-                                               <p>Sunny Cyclamen: $69.43</p>
-                                           </li>
-                                        </ul>
-
-
-                                        <ul>
-                                             <h3>May</h3>
-                                             <li>
-                                               <p>Country Basket Blooms:$57.95</p>
-                                               <p>Basket of Joy: $52.95: 87</p>
-                                               <p>Regal Orchids: $56.76</p>
-                                               <p>Summer Brights: $44.95</p>
-                                               <p>Fashionista Blooms: 69.90</p>
-                                             </li>
-                                        </ul>
-
-
-
-                                        <ul>
-                                             <h3>June</h3>
-                                             <li>
-                                               <p>Roses: $43.98</p>
-                                               <p>Regal Orchids: $56.76</p>
-                                               <p>Daisies: $42.80</p>
-                                               <p>Tulips: $56</p>
-                                               <p>Garden Romance: $49.95</p>
-                                              </li>
-                                        </ul>
-                                </article>
+        self.calculate = '''
         '''
         self.close = """
                                 <footer>
@@ -146,13 +130,36 @@ class Page(object):
  </html>
        """
 
+    def print_out(self):
+        all = self.head + self.body + self.close
+        all = all.format(**locals())
+        return all
 
-    if  self.request.GET:
+    @property
+    def title(self):
+        return self.__title
 
-        self.response.write (self.head + self.body + self.calculate + self.close)
-    else:
-        self.response.write (sel.head + self.body + self.close)
+    @title.setter
+    def title(self, new_title):
+        self.__title = new_title
 
+    @property
+    def css(self):
+
+    @css.setter
+    def css(self, new_css_file):
+        self.__css = new_css_file
+
+
+
+
+
+        '''if  self.request.GET:
+
+             self.response.write (self.head + self.body + self.calculate + self.close)
+        else:
+            self.response.write (self.head + self.body + self.close)
+       '''
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
