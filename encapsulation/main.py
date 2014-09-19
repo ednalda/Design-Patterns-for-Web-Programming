@@ -131,7 +131,8 @@ class Page(object):
    </body>
  </html>
        """
-
+    def print_out(self):
+        return self.head + self.body + self.close
     @property
     def total(self):
         return self.__total
@@ -144,6 +145,14 @@ class Page(object):
         self.__total = (self.sales1 + self.sales2 + self.sales3 + self.sales4 + self.sales5)
 
 
+
+
+
+
+
+
+
+
         if self.request.GET:
               s = Page()
               n = Page()
@@ -153,6 +162,8 @@ class Page(object):
            self.response.write(self.head + self.body + self.__total + self.close)
         else:
            self.response.write(self.head + self.body + self.close)
+
+
 
 
 app = webapp2.WSGIApplication([

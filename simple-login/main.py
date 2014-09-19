@@ -53,6 +53,21 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
                                <label>Password: </label><br/><input type="text" name="password" class="input" /><br /><br /><br />
                                <input type="checkbox" name="policy" value ="policy"><a href="#" class="link">Agree with Policy</a><br /><br />
                                <input type="submit" value="Submit" class="submit" /> </form>'''
+        answer = '''
+                        <div id="main">
+                            <div id="header">
+                                  <h1> The BoatHouse</h1>
+                                  <ul>
+                                     <li><a href="#" class="link">Home</a></li>
+                                     <li><a href="#" class="link">News</a></li>
+                                     <li><a href="#" class="link">Favorite</a></li>
+                                     <li><a href="#" class="link">About</a></li>
+                                     <li><a href="#" class="link">Log On</a></li>
+                                  </ul>
+                            </div>
+
+                        </div>
+        '''
         page_close = '''
                            </div>
     </body>
@@ -68,7 +83,7 @@ class MainHandler(webapp2.RequestHandler): #declaring a class
            email = self.request.GET['email']#condition true
            password = self.request.GET['password']#condition true
            policy = self.request.GET ['policy']
-           self.response.write(page_head +  user + '  '  + address + phone +  email  +  password   + add + policy + page_body + page_close)#all condition are true
+           self.response.write(page_head + answer + user + '  '  + address + phone +  email  +  password   + add + policy  + page_close)#all condition are true
 
 
         else: #if condition above not satisfied, print next line
