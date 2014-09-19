@@ -31,7 +31,7 @@ class MainHandler(webapp2.RequestHandler):
         s.sale3 = 40
         s.sale4 = 40
         s.sale5 = 40
-        print s.__total
+        self.response.write(s.__total)
         #November delivered
         n = Page ()
         n.sale1 = 50
@@ -39,7 +39,7 @@ class MainHandler(webapp2.RequestHandler):
         n.sale3 = 50
         n.sale4 = 50
         n.sale5 = 50
-        n.__total
+        self.response.write(n.__total)
         #February delivered
         f = Page ()
         f.sale1 = 50
@@ -47,7 +47,7 @@ class MainHandler(webapp2.RequestHandler):
         f.sale3 = 50
         f.sale4 = 50
         f.sale5 = 50
-        f.__total
+        self.response.write(f.__total)
         #June delivered
         J = Page ()
         j.sale1 = 50
@@ -55,7 +55,7 @@ class MainHandler(webapp2.RequestHandler):
         j.sale3 = 50
         j.sale4 = 50
         j.sale5 = 50
-        j.__total
+        self.response.write(j.__total)
         #May delivered
         m = Page ()
         m.sale1 = 50
@@ -140,13 +140,10 @@ class delivered(object):
 
     @property
     def total(self):
+        self.__total = (self.sales1 + self.sales2 + self.sales3 + self.sales4 + self.sales5)
         return self.__total
 
-    @total.setter
-    def total(self):
-       return self.__total
-
-
+    
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
