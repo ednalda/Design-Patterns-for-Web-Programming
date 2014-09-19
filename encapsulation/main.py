@@ -25,59 +25,86 @@ import webapp2
 class  MainHandler(webapp2.RequestHandler):
     def get(self):
         #September delivered
-        s = Delivered()
+        s = Delivered()#next five objects
         s.sale1 = 40
-        s.sale2 = 40
-        s.sale3 = 40
-        s.sale4 = 40
-        s.sale5 = 40
+        s.sale2 = 69
+        s.sale3 = 36
+        s.sale4 = 89
+        s.sale5 = 24
         s.calc_total()
-        self.response.write(s.__total)
+        self.response.write(s._total)#writing the total monthly sales as property as the getter gives access.
+
         #November delivered
-        n = Delivered ()
+        n = Delivered()
         n.sale1 = 50
-        n.sale2 = 50
-        n.sale3 = 50
-        n.sale4 = 50
-        n.sale5 = 50
+        n.sale2 = 55
+        n.sale3 = 68
+        n.sale4 = 93
+        n.sale5 = 32
         n.calc_total()
-        self.response.write(n.__total)
+        self.response.write(n._total)
+
         #February delivered
-        f = Delivered ()
-        f.sale1 = 50
-        f.sale2 = 50
-        f.sale3 = 50
-        f.sale4 = 50
-        f.sale5 = 50
+        f = Delivered()
+        f.sale1 = 24
+        f.sale2 = 12
+        f.sale3 = 18
+        f.sale4 = 84
+        f.sale5 = 34
         f.calc_total()
-        self.response.write(f.__total)
+        self.response.write(f._total)
+
         #June delivered
-        J = Delivered ()
+        j = Delivered()
         j.sale1 = 50
         j.sale2 = 50
         j.sale3 = 50
         j.sale4 = 50
         j.sale5 = 50
         j.calc_total()
-        self.response.write(j.__total)
+        self.response.write(j._total)
+
         #May delivered
-        m = Delivered ()
+        m = Delivered()
         m.sale1 = 50
         m.sale2 = 50
         m.sale3 = 50
         m.sale4 = 50
         m.sale5 = 50
         m.calc_total()
-        self.response.write(m.__total)
+        self.response.write(m._total)
 
-class Delivered(object):
+class Delivered(object):#class to call the attributes of objects.
     def __init__(self):
         self.sale1= 0
         self.sale2= 0
         self.sale3= 0
         self.sale4= 0
         self.sale5= 0
-        self.__total= 0
+        self.__total= 0 #private attribute only access inside this class
+
+    def calc_total(self):#function to calculate the total sales by adding the sales together.
+        self._total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
+
+    #decorators treating properties as variables
+    @property #getter: to return the total sales. It's accessing the total monthly sales attribute that is private only accessed inside the class Delivered.
+    def total(self):#function
+        return self.__total # return the total monthly sales attribute
+
+    @total.setter #setter: It gives the ability to update the total monthly sales result as it need.
+    def total(self, new_total):
+        self._total = new_total
+
+        if    self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
+              s = Delivered()
+              n = Delivered()
+              f = Delivered()
+              j = Delivered()
+              m = Delivered()
+              self.response.write(self.head + self.body + self.__total + self.close)
+        else:
+              self.response.write(self.head + self.body + self.close)
+
 
 class Page(object):
     def __init__(self):
@@ -153,29 +180,8 @@ class Page(object):
    </body>
  </html>
        """
-    def print_out(self):
-        return self.head + self.body + self.close
-    @property
-    def total(self):
-        return self.__total
-
-    @total.setter
-    def total(self, new_total):
-        self.__total = new_total
-
-    def calc_total(self):
-        self.__total = (self.sales1 + self.sales2 + self.sales3 + self.sales4 + self.sales5)
 
 
-        if self.request.GET:
-              s = Delivered()
-              n = Delivered()
-              f = Delivered()
-              j = Delivered()
-              m = Delivered()
-           self.response.write(self.head + self.body + self.__total + self.close)
-        else:
-           self.response.write(self.head + self.body + self.close)
 
 
 
