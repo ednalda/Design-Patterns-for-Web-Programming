@@ -32,7 +32,6 @@ class  MainHandler(webapp2.RequestHandler):
         s.sale4 = 89
         s.sale5 = 24
         s.calc_total()
-        self.response.write(s._total)#writing the total monthly sales as property as the getter gives access.
 
         #November delivered
         n = Delivered()
@@ -42,7 +41,7 @@ class  MainHandler(webapp2.RequestHandler):
         n.sale4 = 93
         n.sale5 = 32
         n.calc_total()
-        self.response.write(n._total)
+
 
         #February delivered
         f = Delivered()
@@ -52,7 +51,7 @@ class  MainHandler(webapp2.RequestHandler):
         f.sale4 = 84
         f.sale5 = 34
         f.calc_total()
-        self.response.write(f._total)
+
 
         #June delivered
         j = Delivered()
@@ -62,7 +61,7 @@ class  MainHandler(webapp2.RequestHandler):
         j.sale4 = 50
         j.sale5 = 50
         j.calc_total()
-        self.response.write(j._total)
+
 
         #May delivered
         m = Delivered()
@@ -72,7 +71,7 @@ class  MainHandler(webapp2.RequestHandler):
         m.sale4 = 50
         m.sale5 = 50
         m.calc_total()
-        self.response.write(m._total)
+
 
 class Delivered(object):#class to call the attributes of objects.
     def __init__(self):
@@ -174,21 +173,17 @@ class Page(object):
  </html>
        """
 
-
-
     def update(self):
-            self.page = self.head + self.calculate + self.close
-            self.page = self.page.format(**locals())
+        self.page = self.head +  self.calculate + self._total + self.close #get self._total sense setter makes possible to write.
+        self.page = self.page.format(**locals())
 
-            if  self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
-                    s = Delivered()
-                    n = Delivered()
-                    f = Delivered()
-                    j = Delivered()
-                    m = Delivered()
+        if  self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
+            submit = self.request.GET['Delivered']
             self.response.write(self.page)
-            else:
+        else:
             self.response.write(self.head + self.body + self.close)
+
+
 
 
 
