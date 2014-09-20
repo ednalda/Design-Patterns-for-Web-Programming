@@ -32,7 +32,7 @@ class  MainHandler(webapp2.RequestHandler):
         s.sale4 = 89
         s.sale5 = 24
         s.calc_total()
-
+        #self.response.write(s.total)
         #November delivered
         n = Delivered()
         n.sale1 = 50
@@ -41,8 +41,7 @@ class  MainHandler(webapp2.RequestHandler):
         n.sale4 = 93
         n.sale5 = 32
         n.calc_total()
-
-
+        #self.response.write(n.total)
         #February delivered
         f = Delivered()
         f.sale1 = 24
@@ -51,8 +50,7 @@ class  MainHandler(webapp2.RequestHandler):
         f.sale4 = 84
         f.sale5 = 34
         f.calc_total()
-
-
+        #self.response.write(f.total)
         #June delivered
         j = Delivered()
         j.sale1 = 50
@@ -61,8 +59,7 @@ class  MainHandler(webapp2.RequestHandler):
         j.sale4 = 50
         j.sale5 = 50
         j.calc_total()
-
-
+        #self.response.write(j.total)
         #May delivered
         m = Delivered()
         m.sale1 = 50
@@ -71,8 +68,7 @@ class  MainHandler(webapp2.RequestHandler):
         m.sale4 = 50
         m.sale5 = 50
         m.calc_total()
-
-
+        #self.response.write(m.total)
 class Delivered(object):#class to call the attributes of objects.
     def __init__(self):
         self.sale1= 0
@@ -90,10 +86,10 @@ class Delivered(object):#class to call the attributes of objects.
 
     @total.setter #setter: It gives the ability to update the total monthly sales result as it need.
     def total(self, new_total):
-        self._total = new_total
+        self.__total = new_total
 
     def calc_total(self):#function to calculate the total monthly sales by adding the sales together.
-        self._total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
+        self.__total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
 
 
 
@@ -132,11 +128,11 @@ class Page(object):
                                <div id = "content">
                                     <article>
                                       <ul>
-                                         <p><input type="submit" value= "September" class="submit" /></p>
-                                         <p><input type="submit" value= "November" class="submit" /></p>
-                                         <p><input type="submit" value= "February" class="submit" /></p>
-                                         <p><input type="submit" value= "June" class="submit" /></p>
-                                         <p><input type="submit" value= "May" class="submit" /></p>
+                                         <p><input type="submit" name= "September"value= "September" class="submit" /></p>
+                                         <p><input type="submit" name= "November" value= "November" class="submit" /></p>
+                                         <p><input type="submit" name= "February" value= "February" class="submit" /></p>
+                                         <p><input type="submit" name= "June" value= "June" class="submit" /></p>
+                                         <p><input type="submit" name= "May" value= "May" class="submit" /></p>
                                       </ul>
                                     </article>
                                     <aside>
@@ -172,16 +168,17 @@ class Page(object):
    </body>
  </html>
        """
-
-    def update(self):
-        self.page = self.head +  self.calculate + self._total + self.close #get self._total sense setter makes possible to write.
-        self.page = self.page.format(**locals())
-
         if  self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
-            submit = self.request.GET['Delivered']
-            self.response.write(self.page)
+                     September= self.request.GET(s.total)
+                     November = self.request.GET(n.total)
+                     February = self.request.GET(f.total)
+                     June =     self.request.GET(j.total)
+                     May =      self.request.GET(m.total)
+                     self.response.write(self.head + self.calculate + self.close)
         else:
-            self.response.write(self.head + self.body + self.close)
+                     self.response.write(self.head + self.body + self.close)
+
+
 
 
 
