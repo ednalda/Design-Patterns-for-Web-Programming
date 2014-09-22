@@ -64,11 +64,11 @@ class Page(object):
                                <div id = "content">
                                     <article>
                                       <ul>
-                                         <p><a href="september.py"><input type="submit"  value= "September" class="submit" /></a></p>
-                                         <p><a href="november.py"><input type="submit"  value= "November" class="submit" /></a></p>
-                                         <p><a href="february.py" ><input type="submit" value= "February" class="submit" /></a></p>
-                                         <p><a href="june.py" ><input type="submit"  value= "June" class="submit" /></a></p>
-                                         <p><a href="may.py"><input type="submit"  value= "May" class="submit" /></a></p>
+                                         <p><a href="?name=september"><input type="submit"  value= "September" class="submit" /></a></p>
+                                         <p><a href="?name=november"><input type="submit"  value= "November" class="submit" /></a></p>
+                                         <p><a href="?name=february" ><input type="submit" value= "February" class="submit" /></a></p>
+                                         <p><a href="?name=june" ><input type="submit"  value= "June" class="submit" /></a></p>
+                                         <p><a href="?name=may"><input type="submit"  value= "May" class="submit" /></a></p>
                                       </ul>
                                     </article>
                                     <aside>
@@ -93,9 +93,23 @@ class Page(object):
          return all
 
 
-
-
-
+         if   self.request.GET:
+              september = self.request.GET['september.py']
+              self.response.write(self.head + self.body + self.close)
+         elif self.request.GET:
+              november = self.request.GET['november.py']
+              self.response.write(self.head + self.body + self.close)
+         elif self.request.GET:
+              february = self.request.GET['february.py']
+              self.response.write(self.head + self.body + self.close)
+         elif self.request.GET:
+              june = self.request.GET['june.py']
+              self.response.write(self.head + self.body + self.close)
+         elif self.request.GET:
+              may = self.request.GET['may.py']
+              self.response.write(self.head + self.body + self.close)
+         else:
+              self.response.write(self.head + self.body + self.close)
 
 
 

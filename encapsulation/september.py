@@ -5,23 +5,14 @@ class  MainHandler(webapp2.RequestHandler):
 
     def get(self):
         #September delivered
-        s = Delivered()#next five objects
-        s.sale1 = 40
-        s.sale2 = 69
-        s.sale3 = 36
-        s.sale4 = 89
-        s.sale5 = 24
+        s = [40, 69, 36, 89, 24]
         s.calc_total()
         #self.response.write(s.total)
         p = Page2()
         self.response.write (p.print_out())
 class Delivered(object):#class to call the attributes of objects.
     def __init__(self):
-        self.sale1= 0
-        self.sale2= 0
-        self.sale3= 0
-        self.sale4= 0
-        self.sale5= 0
+        self.s = [0, 0, 0, 0, 0]
         self.__total= 0 #private attribute only access inside this class
 
 
@@ -35,7 +26,8 @@ class Delivered(object):#class to call the attributes of objects.
         self.__total = new_total
 
     def calc_total(self):#function to calculate the total monthly sales by adding the sales together.
-        self.__total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
+        self.__total = [0 + 1 + 2 + 3 + 4]
+
 class Page2(object):
     def __init__(self):
         self.title = "Welcome!"
@@ -73,12 +65,12 @@ class Page2(object):
                           <ul>
                                <h3>September</h3>
                                <li>
-                                    <h3>Basket of Joy: </h3><p class="price" id="s.sale1">''</p>
-                                    <h3>Country Basket Blooms: </h3><p class="price" id="s.sale2">''</p>
-                                    <h3>Summer Brights: </h3><p class="price" id="s.sale3">''</p>
-                                    <h3>Fashionista Blooms: </h3><p class="price" id="s.sale4">''</p>
-                                    <h3>Garden Romance: </h3><p class="price" id="s.sale5">''</p>
-                                    <h3 class="total">Total:</h3><p class="total" >''</p>
+                                    <h3>Basket of Joy: </h3><p class="price" id="s.sale1">%</p>
+                                    <h3>Country Basket Blooms: </h3><p class="price" id="s.sale2">%</p>
+                                    <h3>Summer Brights: </h3><p class="price" id="s.sale3">%</p>
+                                    <h3>Fashionista Blooms: </h3><p class="price" id="s.sale4">%</p>
+                                    <h3>Garden Romance: </h3><p class="price" id="s.sale5">%</p>
+                                    <h3 class="total">Total:</h3><p class="total" >%</p>
                                </li>
                           </ul>
                     </article>
@@ -92,4 +84,5 @@ class Page2(object):
         all = all.format(**locals())
         return all
 
-        for s.sale1
+    for index in range (len(s)):
+        print s[index] + s.calc_total()
