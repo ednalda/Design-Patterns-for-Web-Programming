@@ -44,7 +44,7 @@ nav .sub_nav li{
 }
 a:link{
 	text-decoration: none;
-	color: #3D003D;
+	color: #000;
 }
 a:hover{
 	color: #CC00FF;
@@ -64,7 +64,7 @@ li{
 	width: 20%;
 	border: solid #5C005C;
 	border-radius: 50%;
-	margin-left: 33%;
+	margin-left: 40%;
 	
 }
  

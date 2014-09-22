@@ -23,6 +23,7 @@ assignment: Simple Form
 import webapp2
 
 class  MainHandler(webapp2.RequestHandler):
+
     def get(self):
         #September delivered
         s = Delivered()#next five objects
@@ -69,6 +70,8 @@ class  MainHandler(webapp2.RequestHandler):
         m.sale5 = 50
         m.calc_total()
         #self.response.write(m.total)
+        p = Page()
+        self.response.write (p.print_out())
 class Delivered(object):#class to call the attributes of objects.
     def __init__(self):
         self.sale1= 0
@@ -90,8 +93,6 @@ class Delivered(object):#class to call the attributes of objects.
 
     def calc_total(self):#function to calculate the total monthly sales by adding the sales together.
         self.__total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
-
-
 
 
 class Page(object):
@@ -128,25 +129,60 @@ class Page(object):
                                <div id = "content">
                                     <article>
                                       <ul>
-                                         <p><input type="submit" name= "September"value= "September" class="submit" /></p>
-                                         <p><input type="submit" name= "November" value= "November" class="submit" /></p>
-                                         <p><input type="submit" name= "February" value= "February" class="submit" /></p>
-                                         <p><input type="submit" name= "June" value= "June" class="submit" /></p>
-                                         <p><input type="submit" name= "May" value= "May" class="submit" /></p>
+                                         <p><a href="september.py"><input type="submit"  value= "September" class="submit" /></a></p>
+                                         <p><a href="#"><input type="submit"  value= "November" class="submit" /></a></p>
+                                         <p><a href="#" ><input type="submit" value= "February" class="submit" /></a></p>
+                                         <p><a href="#" ><input type="submit"  value= "June" class="submit" /></a></p>
+                                         <p><a href="#"><input type="submit"  value= "May" class="submit" /></a></p>
                                       </ul>
                                     </article>
                                     <aside>
                                     </aside>
                                </div>
                                '''
+        self.calculate_september = ''' <div id = "page">
+              <header>
+                    <nav>
+                          <ul class="nav">
+                                <li><img src="images/logo.jpg" class="logo" /></li>
+                                <li><h1>Sweet Flower  Shop</h1></li>
+                          </ul>
+                          <ul class="sub_nav">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Orders</a></li>
+                                <li><a href="#" class="active">Delivered</a></li>
+                                <li><a href="#">Hot Deals</a></li>
+                                <li><a href="#">Sign Out </a></li>
+                          </ul>
 
-        self.calculate = '''<div id = "page">
+                    </nav>
+              </header>
+              <div id = "content">
+                    <article>
+                    <h2>Your Monthly Expenses</h2>
+                          <ul>
+                               <h3>September</h3>
+                               <li>
+                                    <h3>Basket of Joy: </h3><p class="price" id="s_sale1">''</p><p
+                                    <h3>Country Basket Blooms: </h3><p class="price" id="s_sale2">''</p>
+                                    <h3>Summer Brights: </h3><p class="price" id="s_sale3">''</p>
+                                    <h3>Fashionista Blooms: </h3><p class="price" id="s_sale4">''</p>
+                                    <h3>Garden Romance: </h3><p class="price" id="s_sale5">''</p>
+                                    <h3 class="total">Total:</h3><p class="total" id="september_total" >''</p>
+                               </li>
+                          </ul>
+                    </article>
+              </div>
+
+        '''
+
+        self.calculate_november = '''<div id = "page">
                                <header>
                                     <nav>
                                       <ul class="nav">
                                           <li><img src="images/logo.jpg" class="logo" /></li>
                                           <li><h1>Sweet Flower  Shop</h1></li>
-                                    </ul>
+                                      </ul>
                                           <ul class="sub_nav">
                                              <li><a href="#">Home</a></li>
                                              <li><a href="#">Orders</a></li>
@@ -158,7 +194,126 @@ class Page(object):
                                     </nav>
                                </header>
                                <div id = "content">
-        '''
+                                 <h2>Your Monthly Expenses</h2>
+                                   <article>
+                                        <ul>
+                                           <h3>November</h3>
+                                           <li>
+                                               <p>Cotton Candy: </p>
+                                               <p>Roses: </p>
+                                               <p>Tulips: </p>
+                                               <p>Daisies: </p>
+                                               <p>Gerberas: </p>
+                                           </li>
+                                        </ul>
+                                   </article>
+                               </div>
+
+                            </div>  '''
+
+        self.calculate_february = '''
+                         <div id = "page">
+                               <header>
+                                    <nav>
+                                      <ul class="nav">
+                                          <li><img src="images/logo.jpg" class="logo" /></li>
+                                          <li><h1>Sweet Flower  Shop</h1></li>
+                                      </ul>
+                                          <ul class="sub_nav">
+                                             <li><a href="#">Home</a></li>
+                                             <li><a href="#">Orders</a></li>
+                                             <li><a href="#" class="active">Delivered</a></li>
+                                             <li><a href="#">Hot Deals</a></li>
+                                             <li><a href="#">Sign Out </a></li>
+                                          </ul>
+
+                                    </nav>
+                               </header>
+                               <div id = "content">
+                                   <h2>Your Monthly Expenses</h2>
+                                   <article>
+                                        <ul>
+                                             <h3>February</h3>
+                                             <li>
+                                               <p>Violeta: </p>
+                                               <p>Rose beauty: </p>
+                                               <p>Regal Orchids: </p>
+                                               <p>Yellow Trio Basket: </p>
+                                               <p>Sunny Cyclamen: </p>
+                                             </li>
+                                        </ul>
+                                   </article>
+                               </div>
+                         </div> '''
+        self.calculate_june = '''
+                         <div id = "page">
+                               <header>
+                                    <nav>
+                                      <ul class="nav">
+                                          <li><img src="images/logo.jpg" class="logo" /></li>
+                                          <li><h1>Sweet Flower  Shop</h1></li>
+                                      </ul>
+                                          <ul class="sub_nav">
+                                             <li><a href="#">Home</a></li>
+                                             <li><a href="#">Orders</a></li>
+                                             <li><a href="#" class="active">Delivered</a></li>
+                                             <li><a href="#">Hot Deals</a></li>
+                                             <li><a href="#">Sign Out </a></li>
+                                          </ul>
+                                      </nav>
+                               </header>
+                               <div id = "content">
+                                   <h2>Your Monthly Expenses</h2>
+                                   <article>
+                                        <ul>
+                                             <h3>May</h3>
+                                             <li>
+                                               <p>Country Basket Blooms: </p>
+                                               <p>Basket of Joy: </p>
+                                               <p>Regal Orchids: </p>
+                                               <p>Summer Brights: </p>
+                                               <p> Blooms: </p>
+                                             </li>
+                                        </ul>
+                                   </article>
+                              </div>
+                         </div>  '''
+        self.calculate_may = '''
+                              <div id = "page">
+                                        <header>
+                                            <nav>
+                                               <ul class="nav">
+                                                   <li><img src="images/logo.jpg" class="logo" /></li>
+                                                   <li><h1>Sweet Flower  Shop</h1></li>
+                                               </ul>
+                                               <ul class="sub_nav">
+                                                   <li><a href="#">Home</a></li>
+                                                   <li><a href="#">Orders</a></li>
+                                                   <li><a href="#" class="active">Delivered</a></li>
+                                                   <li><a href="#">Hot Deals</a></li>
+                                                   <li><a href="#">Sign Out </a></li>
+                                               </ul>
+                                            </nav>
+                                        </header>
+                                        <div id = "content">
+                                            <h2>Your Monthly Expenses</h2>
+                                            <article>
+                                                 <ul>
+                                                    <h3>June</h3>
+                                                    <li>
+                                                         <p>Roses: </p>
+                                                         <p>Regal Orchids: </p>
+                                                         <p>Daisies: </p>
+                                                         <p>Tulips: </p>
+                                                         <p>Garden Romance: </p>
+                                                     </li>
+                                                 </ul>
+                                            </article>
+                                        </div>
+
+                              </div> '''
+
+
         self.close = """
                                 <footer>
                                   <p>Sweet Flower Shop @ 2014</p>
@@ -168,15 +323,12 @@ class Page(object):
    </body>
  </html>
        """
-        if  self.request.GET:#function that checks if objects (Delivered) are requested its need to respond with a result writing the
-                     September= self.request.GET(s.total)
-                     November = self.request.GET(n.total)
-                     February = self.request.GET(f.total)
-                     June =     self.request.GET(j.total)
-                     May =      self.request.GET(m.total)
-                     self.response.write(self.head + self.calculate + self.close)
-        else:
-                     self.response.write(self.head + self.body + self.close)
+
+
+    def  print_out(self):
+         all = self.head + self.body + self.close
+         all = all.format(**locals())
+         return all
 
 
 
