@@ -92,3 +92,4 @@ class Page2(object):
         all = all.format(**locals())
         return all
 
+        for s.sale1
