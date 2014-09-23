@@ -80,29 +80,29 @@ class  MainHandler(webapp2.RequestHandler):
         m_sales = [[m.sale1, m.sale2, m.sale3, m.sale4, m.sale5], [m.calc_total()]]
 
 
-        s_button = Button ()
+        s_button = Button()
         s_button.result = s_sales[0][1]
         s_button.show_result()
 
-        n_button = Button ()
-        n_button.result =  n_sales[0][1]
+        n_button = Button()
+        n_button.result = n_sales[0][1]
         n_button.show_result()
 
-        f_button = Button ()
+        f_button = Button()
         f_button.result = f_sales[0][1]
         f_button.show_result()
 
-        j_button = Button ()
-        j_button.result =  j_sales[0][1]
+        j_button = Button()
+        j_button.result = j_sales[0][1]
         j_button.show_result()
 
 
-        m_button = Button ()
+        m_button = Button()
         m_button.result = m_sales[0][1]
         m_button.show_result()
 
         p = Page()
-        self.response.write (p.print_out())
+        self.response.write(p.print_out())
 
 
 
@@ -133,7 +133,8 @@ class Button (object):
         self.result = ""
 
     def show_result(self):
-        print self.result
+        self.result = ""
+
 
 
 
