@@ -98,7 +98,7 @@ class  MainHandler(webapp2.RequestHandler):
 
 
         m_button = Button ()
-        m_button.result =  m_sales[0][1]
+        m_button.result = m_sales[0][1]
         m_button.show_result()
 
         p = Page()
@@ -128,16 +128,14 @@ class Delivered(object):#class to call the attributes of objects.
     def calc_total(self):#function to calculate the total monthly sales by adding the sales together.
         self.__total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
 
-
-
-
-
 class Button (object):
     def __init__(self):
-        self.result=""
+        self.result = ""
 
-    def show_result(self):#click button to call the object.
-        self.response.write(self.result)
+    def show_result(self):
+        print self.result
+
+
 
 
 

@@ -151,19 +151,19 @@ class Page(object):
 
 
          if   self.request.GET:
-              september = self.request.GET['s_button']
-              self.response.write(self.head + self.september + self.close)
+              september = self.request.GET['september']
+              self.response.write(self.head + self.september +  s_button.show_result() + self.close)
          elif self.request.GET:
-              november = self.request.GET['n_button']
-              self.response.write(self.head + self.november + self.close)
+              november = self.request.GET['november']
+              self.response.write(self.head + self.november +  n_button.show_result() + self.close)
          elif self.request.GET:
-              february = self.request.GET['f_button']
-              self.response.write(self.head + self.february + self.close)
+              february = self.request.GET['february']
+              self.response.write(self.head + self.february +  f_button.show_result() + self.close)
          elif self.request.GET:
-              june = self.request.GET['j_button']
-              self.response.write(self.head + self.june + self.close)
+              june = self.request.GET['june']
+              self.response.write(self.head + self.june +  j_button.show_result() + self.close)
          elif self.request.GET:
-              may = self.request.GET['m_button']
-              self.response.write(self.head + self.may + self.close)
+              may = self.request.GET['may']
+              self.response.write(self.head + self.may +  m_button.show_result() + self.close)
          else:
               self.response.write(self.head + self.body + self.close)
