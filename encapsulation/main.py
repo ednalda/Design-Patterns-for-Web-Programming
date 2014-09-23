@@ -22,6 +22,7 @@ assignment: Simple Form
 '''
 import webapp2
 from pages import Page #impor class Page from pages file
+from deliveres import Delivered
 class  MainHandler(webapp2.RequestHandler):
 
     def get(self):
@@ -105,28 +106,37 @@ class  MainHandler(webapp2.RequestHandler):
         self.response.write(p.print_out())
 
 
+        if self.request.GET:
+        #if we have September after name in url
+           if    self.request.GET['name'] == 'september':
+                 p.month_data = s
+                 self.response.write(p.month + p.close)
 
-class Delivered(object):#class to call the attributes of objects.
-    def __init__(self): #Constrution method to design the object (Delivered)
-        self.sale1= 0
-        self.sale2= 0
-        self.sale3= 0
-        self.sale4= 0
-        self.sale5= 0
-        self.__total= 0 #private attribute only access inside this class
+           elif  self.request.GET ['name'] == 'november':
+                 p.month_data = n
+                 self.response.write(p.month + p.close)
+
+           elif  self.request.GET ['name'] == 'february':
+                 p.month_data = f
+                 self.response.write(p.month + p.close)
+
+           elif  self.request.GET ['name'] == 'june':
+                 p.month_data = j
+                 self.response.write(p.month + p.close)
+
+           elif  self.request.GET ['name'] == 'may':
+                 p.month_data = m
+                 self.response.write(p.month + p.close)
+
+           else:
+
+                 self.response.write(p.head + p.body + p.close)
+        else:
+           self.response.write('')
 
 
- #decorators treating properties as variables
-    @property #getter: to return the total sales. It's accessing the total monthly sales attribute that is private only accessed inside the class Delivered.
-    def total(self):#function
-        return self.__total # return the total monthly sales attribute
 
-    @total.setter #setter: It gives the ability to update the total monthly sales result as it need.
-    def total(self, new_total):
-        self.__total = new_total
 
-    def calc_total(self):#function to calculate the total monthly sales by adding the sales together.
-        self.__total = self.sale1 + self.sale2 + self.sale3 + self.sale4 + self.sale5
 
 class Button (object):
     def __init__(self):
