@@ -81,27 +81,25 @@ class  MainHandler(webapp2.RequestHandler):
 
 
         s_button = Button ()
-        s_button.label = "September"
         s_button.result = s_sales[0][1]
+        s_button.show_result()
 
         n_button = Button ()
-        n_button.label = "November"
         n_button.result =  n_sales[0][1]
-
+        n_button.show_result()
 
         f_button = Button ()
-        f_button.label = "February"
         f_button.result = f_sales[0][1]
-
+        f_button.show_result()
 
         j_button = Button ()
-        j_button.label = "June"
         j_button.result =  j_sales[0][1]
+        j_button.show_result()
+
 
         m_button = Button ()
-        m_button.label = "May"
         m_button.result =  m_sales[0][1]
-
+        m_button.show_result()
 
         p = Page()
         self.response.write (p.print_out())
@@ -136,11 +134,10 @@ class Delivered(object):#class to call the attributes of objects.
 
 class Button (object):
     def __init__(self):
-        self.label=""
         self.result=""
 
     def show_result(self):#click button to call the object.
-        self.response.write = self.result
+        self.response.write(self.result)
 
 
 
