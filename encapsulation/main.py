@@ -16,9 +16,9 @@
 #
 '''
 name:Ednalda Fakira
-date:09/11/14
+date:18/11/14
 class:Design Patterns for Web Programming - Online
-assignment: Simple Form
+assignment: Encapsulating
 '''
 import webapp2
 #it connects to class Page in a separate file.
