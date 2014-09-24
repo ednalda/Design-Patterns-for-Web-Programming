@@ -2,6 +2,7 @@ __author__ = 'ednaldafakira'
 
 class Delivered(object):#class to call the attributes of objects.
     def __init__(self): #Construction method to design the object (Delivered)
+
         self.sale1= 0
         self.sale2= 0
         self.sale3= 0

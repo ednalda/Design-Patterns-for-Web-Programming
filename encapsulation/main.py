@@ -90,11 +90,12 @@ class  MainHandler(webapp2.RequestHandler):
         #if we have September after name in url
            if    self.request.GET['name'] == 'september':
                  p.month_data = s #part of the html from class Page that holds the class Delivered attributes for each month
+                 title ='s.title'
                  self.response.write(p.print_out_data())# call function print_out_data from class Page to print Delivered attributes.
         #if we have November after name in url
            elif  self.request.GET ['name'] == 'november':
                  p.month_data = n
-                 self.response.write(p.print_out_data())
+                 self.response.write('November' + p.print_out_data())
         #if we have February after name in url
            elif  self.request.GET ['name'] == 'february':
                  p.month_data = f

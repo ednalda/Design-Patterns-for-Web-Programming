@@ -17,11 +17,9 @@ class Page(object):
 
         self.body = '''<div id = "page">
                                <header>
-                                    <nav>
-                                      <ul class="nav">
-                                          <li><img src="images/logo.jpg" class="logo" /></li>
-                                          <li><h1>Sweet Flower  Shop</h1></li>
-                                    </ul>
+                                 <nav>
+                                    <ul>
+                                        <li><h1><img src="images/logo.jpg" class="logo" />Sweet Flower Shop </h1></li>
                                           <ul class="sub_nav">
                                              <li><a href="#">Home</a></li>
                                              <li><a href="#">Orders</a></li>
@@ -29,45 +27,44 @@ class Page(object):
                                              <li><a href="#">Hot Deals</a></li>
                                              <li><a href="#">Sign Out </a></li>
                                           </ul>
-
-                                    </nav>
+                                    </ul>
+                                </nav>
                                </header>
                                <div id = "content">
                                     <article>
-                                         <ul>
-                                            <p><a href="?name=september">September</a></p>
-                                            <p><a href="?name=november">november</a></p>
-                                            <p><a href="?name=february">february</a></p>
-                                            <p><a href="?name=june">june</a></p>
-                                            <p><a href="?name=may">may</a></p>
+                                         <ul class="links">
+                                            <li><h2><a href="?name=september">September</a></h2></li>
+                                            <li><h2><a href="?name=november">November</a></h2></li>
+                                            <li><h2><a href="?name=february">February</a></h2></li>
+                                            <li><h2><a href="?name=june">June</a></h2></li>
+                                            <li><h2><a href="?name=may">May</a></h2></li>
                                          </ul>
                                     </article>
-                               </div>
-                               '''
+                                    '''
+
+
         self.month_data = Delivered()
 
 
-        self.month = ''' <div id = "content">
-                    <article>
-                    <h2>Your Monthly Expenses</h2>
-                          <ul>
+        self.month = '''
+                    <aside>
+
+                          <ul class="links">
                                <li>
-                                    <h3 name="data1">Basket of Joy:{self.month_data.sale1}</h3>
-                                    <h3>Country Basket Blooms:{self.month_data.sale2} </h3>
-                                    <h3>Summer Brights:{self.month_data.sale3} </h3>
-                                    <h3>Blooms:{self.month_data.sale4} </h3>
-                                    <h3>Garden Romance:{self.month_data.sale5} </h3>
-                                    <h3>Total:{self.month_data.total}</h3>
+                                    <h3>Basket of Joy:  {self.month_data.sale1}</h3>
+                                    <h3>Country Basket Blooms:  {self.month_data.sale2} </h3>
+                                    <h3>Summer Brights:  {self.month_data.sale3} </h3>
+                                    <h3>Blooms:  {self.month_data.sale4} </h3>
+                                    <h3>Garden Romance:  {self.month_data.sale5} </h3>
+                                    <h3>Total:  {self.month_data.total}</h3>
                                </li>
                           </ul>
-                    </article>
-           </div>'''
-
+                    </aside>
+           </div>
+                     '''
 
         self.close = """
-                                <footer>
-                                  <p>Sweet Flower Shop @ 2014</p>
-                               </footer>
+
                        </div>
 
    </body>
@@ -75,7 +72,7 @@ class Page(object):
        """
 
     def print_out(self):
-        all = self.head + self.body #+ self.close
+        all = self.head + self.body + self.close
         all = all.format(**locals())
         return all
 
