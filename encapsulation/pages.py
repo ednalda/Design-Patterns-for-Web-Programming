@@ -1,4 +1,5 @@
 __author__ = 'ednaldafakira'
+
 from deliveres import Delivered
 class Page(object):
     def __init__(self):
@@ -51,12 +52,12 @@ class Page(object):
                     <h2>Your Monthly Expenses</h2>
                           <ul>
                                <li>
-                                    <h3>Basket of Joy:{self.month_data.sale1}</h3>
+                                    <h3 name="data1">Basket of Joy:{self.month_data.sale1}</h3>
                                     <h3>Country Basket Blooms:{self.month_data.sale2} </h3>
                                     <h3>Summer Brights:{self.month_data.sale3} </h3>
                                     <h3>Blooms:{self.month_data.sale4} </h3>
                                     <h3>Garden Romance:{self.month_data.sale5} </h3>
-                                    <h3>Total:{self.month_data._total}</h3>
+                                    <h3>Total:{self.month_data.total}</h3>
                                </li>
                           </ul>
                     </article>
@@ -73,19 +74,19 @@ class Page(object):
  </html>
        """
 
-
-
-    def data(self):
-        if  self.request.GET:
-            september = self.request.GET['self.month']
-            self.response.write(self.month_data.sale1 + self.month_data.sale2 + self.month_data.sale3 + self.month_data.sale4 + self.month_data.sale5 + self.month_data._total )
-        else:
-            self.response.write(self.head + self.body + self.close)
-
     def print_out(self):
-        all = self.head + self.body  #+ self.close
+        all = self.head + self.body #+ self.close
         all = all.format(**locals())
         return all
+
+    def print_out_data(self):
+        a = self.head + self.month + self.close
+        a = a.format(**locals())
+        return a
+
+
+
+
 
 
 
