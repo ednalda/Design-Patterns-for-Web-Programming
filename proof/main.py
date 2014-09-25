@@ -14,17 +14,14 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-'''
-name:Ednalda Fakira
-date:09/23/14
-class:Design Patterns for Web Programming - Online
-assignment: Proof of Concept
-'''
-import webapp2  # use the webapp2 library
-
+import webapp2
+from view import AppView
+from collect import AppForm
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-
+        view = AppForm()
+        view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
+        self.response.write(view.print_out_form())
 
 
 
