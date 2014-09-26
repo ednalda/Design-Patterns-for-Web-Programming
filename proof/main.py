@@ -36,7 +36,7 @@ class MainHandler(webapp2.RequestHandler):
            result = opener.open(request)
 
            #parse json
-           jsondoc = json.load(result)
+           jsondoc = json.load(result)#json load result from the request url and write out as variable value of movie, movie_cast, movie_director, and movie_poster
            movie = jsondoc['show_title']
            movie_cast = jsondoc['show_cast'][0, 1]
            movie_director = jsondoc['director']
