@@ -25,13 +25,13 @@ class MainHandler(webapp2.RequestHandler):
         view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
         self.response.write(view.print_out_form())
 
-        url = "http://www.recipepuppy.com/api/"
+        url = "http://netflixroulette.net/api/api.php?title=Attack%20on%20titan&type=xml"
         request = urllib2.Request(url)
         opener = urllib2.build_opener()
         result = opener.open(request)
 
         xmldoc = minidom.parse(result)
-        print xmldoc.getElementsByTagName('title')
+        print xmldoc.getElementsByTagName('show_title')
 
 
 app = webapp2.WSGIApplication([
