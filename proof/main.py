@@ -25,11 +25,13 @@ class MainHandler(webapp2.RequestHandler):
         view = AppForm()
         view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
         self.response.write(view.print_out_form())
-        url = "https://data.usajobs.gov/api/jobs"
+        url = "http://services.onetcenter.org/ws/mnm/search?keyword=[architect]"
         request = urllib2.Request(url)
         opener = urllib2.build_opener()
         result = opener.open(request)
-        print result
+        xmldoc = minidom.parse(result)
+        print xmldoc.getElementsByTagName('title')[0]
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
