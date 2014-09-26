@@ -22,17 +22,17 @@ from collect import AppForm
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         view = AppForm()
-        view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
+        view.inputs = [['actor', 'text', 'actor'],['Submit', 'Submit']]
         self.response.write(view.print_out_form())
+        if self.request.GET:
+            actor = self.request.GET['actor']
+            url = "http://netflixroulette.net/api/api.php?actor=" + actor
+            request = urllib2.Request(url)
+            opener = urllib2.build_opener()
+            result = opener.open(request)
 
-        actor = self.request.GET['actor']
-        url = "http://netflixroulette.net/api/api.php?" + actor
-        request = urllib2.Request(url)
-        opener = urllib2.build_opener()
-        result = opener.open(request)
-
-        xmldoc = minidom.parse(result)
-        self.response.write(xmldoc.getElementsByTagName('show_title')[0].firstChild.nodeValue)
+            xmldoc = minidom.parse(result)
+            self.response.write(xmldoc.getElementsByTagName('show_title')[0].firstChild.nodeValue)
 
 
 app = webapp2.WSGIApplication([
