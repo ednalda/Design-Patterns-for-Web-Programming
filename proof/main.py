@@ -15,10 +15,8 @@
 # limitations under the License.
 #
 import webapp2
-import urllib2#library
-from xml.dom import minidom
-from xml.etree.ElementTree import QName
-import xml.etree.ElementTree as ET
+import urllib2#python class to request, receive, and open
+
 import json
 
 
@@ -39,7 +37,12 @@ class MainHandler(webapp2.RequestHandler):
 
            #parse json
            jsondoc = json.load(result)
-           self.response.write(jsondoc)
+           movie = jsondoc['show_title']
+           movie_cast = jsondoc['show_cast'][0, 1]
+           movie_director = jsondoc['director']
+           movie_poster = jsondoc['poster']
+           self.response.write("Movie " + movie + "Cast " + movie_cast + "Director " + movie_director + "<br/>" + movie_poster)
+
 
 
 
