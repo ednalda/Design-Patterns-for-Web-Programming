@@ -25,13 +25,13 @@ class MainHandler(webapp2.RequestHandler):
         view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
         self.response.write(view.print_out_form())
 
-        url = "http://services.onetcenter.org/ws/mnm/search?keyword=[architect]"
+        url = "http://www.recipepuppy.com/api/"
         request = urllib2.Request(url)
         opener = urllib2.build_opener()
         result = opener.open(request)
 
         xmldoc = minidom.parse(result)
-        print xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
+        print xmldoc.getElementsByTagName('title')
 
 
 app = webapp2.WSGIApplication([
