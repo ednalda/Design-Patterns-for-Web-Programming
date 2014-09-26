@@ -17,23 +17,30 @@
 import webapp2
 import urllib2#library
 from xml.dom import minidom
+from xml.etree.ElementTree import QName
+import xml.etree.ElementTree as ET
+import json
+
+
 from collect import AppForm
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         view = AppForm()
-        view.inputs = [['actor', 'text', 'actor'],['Submit','Submit']]
+        view.inputs = [['actor', 'text', 'actor'],['Submit','Submit']]#can be reuse
         self.response.write(view.print_out_form())
         #get information from urllib2 library to request the url
         if self.request.GET:#if is a request look for key=actor write  movie title and  movie category
-           search = self.request.GET['actor']
-           url = "http://netflixroulette.net/api/api.php?actor=" + search
+           actor = self.request.GET['actor']
+           url = "http://netflixroulette.net/api/api.php?actor=" + actor
            request = urllib2.Request(url)
            opener = urllib2.build_opener()
            result = opener.open(request)
-           xmldoc = minidom.parse(result)
-           self.response.write(xmldoc.getElementsByTagName('show_title')[0].firstChild.nodeValue)
-           self.response.write(xmldoc.getElementsByTagName('category')[0].firstChild.nodeValue)
+
+           #parse json
+           jsondoc = json.load(result)
+           self.response.write(jsondoc)
+
 
 
 app = webapp2.WSGIApplication([
