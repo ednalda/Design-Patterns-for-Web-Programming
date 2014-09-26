@@ -16,21 +16,22 @@
 #
 import webapp2
 import urllib2
-
 from xml.dom import minidom
-
 from collect import AppForm
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         view = AppForm()
         view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
         self.response.write(view.print_out_form())
+
         url = "http://services.onetcenter.org/ws/mnm/search?keyword=[architect]"
         request = urllib2.Request(url)
         opener = urllib2.build_opener()
         result = opener.open(request)
+
         xmldoc = minidom.parse(result)
-        print xmldoc.getElementsByTagName('title')[0]
+        print xmldoc.getElementsByTagName('title')[0].firstChild.nodeValue
 
 
 app = webapp2.WSGIApplication([
