@@ -16,6 +16,7 @@
 #
 import webapp2
 import urllib2
+
 from xml.dom import minidom
 
 from collect import AppForm
@@ -24,7 +25,7 @@ class MainHandler(webapp2.RequestHandler):
         view = AppForm()
         view.inputs = [['zip', 'text', 'Zip Code'],['Submit', 'Submit']]
         self.response.write(view.print_out_form())
-        url = "http://ridb.recreation.gov/webservices/RIDBServiceNG.cfc?method=getAllRecElementsForOrgID&orgID=238"
+        url = "https://data.usajobs.gov/api/jobs"
         request = urllib2.Request(url)
         opener = urllib2.build_opener()
         result = opener.open(request)
