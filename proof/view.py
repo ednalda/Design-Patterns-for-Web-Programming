@@ -17,19 +17,26 @@ class AppView(object):
    <body>
         """
 
-        self.body = '''<div id="page">
+        self.body = ''' <div id ="page">
                             <header>
                               <nav><h1>MovieNight</h1></nav>
+                              <h2>Search movies by Actor</h2>
                             </header>
                             <div id="content">
-                              <h2>Search movies by Actor</h2>
 
                             </div>
+                        </div>
 
-                       </div>'''
+                      '''
+        self.query ='''
+                   <h3>Movie: <p>self.query.show_title</p></h3>
+                   <h3>Cast:  <p>self.query.show_cast</p></h3>
+                   <h3>Director: <p>self.query.director</p></h3>
+                   <p>self.query.poster</p>
+         '''
         self.close = """
 
-
+                    <div id="footer"><a href="#">MovieNight</a></div>
    </body>
  </html>
        """

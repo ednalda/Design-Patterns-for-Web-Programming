@@ -23,14 +23,14 @@ from collect import AppForm
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        view = AppForm()#AppForm subclass inherits everything (method, variable) from the superclass AppView
-        self.response.write(view.print_out_form())#return function that prints the subclass AppForm
-        
+        view = AppForm()  #AppForm subclass inherits everything (method, variable) from the superclass View
+        view.inputs = [['actor', 'text', 'actor'],['submit','Submit']]  #array of inputs can be reuse
+        self.response.write(view.print_out_form())
         #get information from urllib2 library to request the url
-        if self.request.GET:#if is a request look for key=actor return show_title, movie_cast, movie_director, and movie_poster of the actor requested.
+        if self.request.GET:  #if is a request look for key=actor return show_title, movie_cast, movie_director, and movie_poster of the actor requested.
            actor = self.request.GET['actor']
            url = "http://netflixroulette.net/api/api.php?actor=" + actor
-           request = urllib2.Request(url)
+           request = urllib2.Request(url)  #variable request value: python class library request url "http://netflixroulette.net/api/api.php?actor="
            opener = urllib2.build_opener()
            result = opener.open(request)
 

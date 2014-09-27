@@ -15,7 +15,7 @@ class AppForm(AppView):
     @inputs.setter #Setter: overrides attribute inputs to access data
     def inputs(self, arr):
         self.__inputs = arr
-        for item in arr:#sending data from the attribute imputs to the array: view.inputs as requested
+        for item in arr:#sending data "from" the attribute inputs to the array: view.inputs as requested
             self.form_inputs += '<input type="' + item[1] + '" name"' + item[0]+'" />'
 
 
