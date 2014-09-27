@@ -16,7 +16,6 @@
 #
 import webapp2
 import urllib2#python class to request, receive, and open
-
 import json
 
 
@@ -24,11 +23,11 @@ from collect import AppForm
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        view = AppForm()
-        view.inputs = [['actor', 'text', 'actor'],['Submit','Submit']]#can be reuse
-        self.response.write(view.print_out_form())
+        view = AppForm()#AppForm subclass inherits everything (method, variable) from the superclass AppView
+        self.response.write(view.print_out_form())#return function that prints the subclass AppForm
+        
         #get information from urllib2 library to request the url
-        if self.request.GET:#if is a request look for key=actor write  movie title and  movie category
+        if self.request.GET:#if is a request look for key=actor return show_title, movie_cast, movie_director, and movie_poster of the actor requested.
            actor = self.request.GET['actor']
            url = "http://netflixroulette.net/api/api.php?actor=" + actor
            request = urllib2.Request(url)
@@ -36,7 +35,7 @@ class MainHandler(webapp2.RequestHandler):
            result = opener.open(request)
 
            #parse json
-           jsondoc = json.load(result)#json load result from the request url and write out as variable value of movie, movie_cast, movie_director, and movie_poster
+           jsondoc = json.load(result)#json load result from the request url
            movie = jsondoc['show_title']
            movie_cast = jsondoc['show_cast'][0, 1]
            movie_director = jsondoc['director']

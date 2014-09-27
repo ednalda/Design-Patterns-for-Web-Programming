@@ -9,8 +9,8 @@ class Page(object):
 <!DOCTYPE HTML>
  <html>
    <head>
-          <title>{self.title}</title>
-          <link href="{self.css}" rel="stylesheet" type="text/css" />
+        <title>{self.title}</title>
+        <link href="{self.css}" rel="stylesheet" type="text/css" />
    </head>
    <body>
         """
