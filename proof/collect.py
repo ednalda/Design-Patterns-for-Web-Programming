@@ -24,4 +24,3 @@ class AppForm(AppView):
         data = self.head +  self.body + self.form_open + self.form_inputs + self.form_close + self.close
         data = data.format(**locals())
         return data
-

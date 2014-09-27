@@ -39,10 +39,13 @@ class MainHandler(webapp2.RequestHandler):
            movie = jsondoc['show_title']
            movie_cast = jsondoc['show_cast'][0, 1]
            movie_director = jsondoc['director']
+           movie_category = jsondoc ['category']
+           movie_summary = jsondoc ['summary']
            movie_poster = jsondoc['poster']
-           self.response.write("Movie " + movie + "Cast " + movie_cast + "Director " + movie_director + "<br/>" + movie_poster)
+           self.response.write("Movie " + movie + "Cast " + movie_cast + "Director " + movie_director + "<br/>" + "Category" + movie_category + "Summary" + movie_summary + "<br/>" + movie_poster)
 
-
+        #else:
+          #self.response.write(view.head + view.body + view.close)
 
 
 app = webapp2.WSGIApplication([
