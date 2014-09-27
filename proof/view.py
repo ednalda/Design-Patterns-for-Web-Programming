@@ -38,7 +38,7 @@ class AppView(object):
         # '''
         self.close = """
 
-                    <div id="footer"><a href="#">MovieNight</a></div>
+
    </body>
  </html>
        """
