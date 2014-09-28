@@ -24,28 +24,29 @@ from collect import AppForm
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         view = AppForm()  #AppForm subclass inherits everything (method, variable) from the superclass View
-        view.inputs = [['actor', 'text', 'actor'],['submit','Submit']]  #array of inputs can be reuse
+        view.inputs = [['title', 'text', 'movie'],['submit','Submit']]  #array of inputs can be reuse
         self.response.write(view.print_out_form())
         #get information from urllib2 library to request the url
         if self.request.GET:  #if is a request look for key=actor return show_title, movie_cast, movie_director, and movie_poster of the actor requested.
-           actor = self.request.GET['actor']
-           url = "http://netflixroulette.net/api/api.php?actor=" + actor
-           request = urllib2.Request(url)  #variable request value: python class library request url "http://netflixroulette.net/api/api.php?actor="
-           opener = urllib2.build_opener()
-           result = opener.open(request)
+           if self.request.GET:
+               title = self.request.GET['title']
+               url = "http://netflixroulette.net/api/api.php?title=" + title
+               request = urllib2.Request(url)  #variable request value: python class library request url "http://netflixroulette.net/api/api.php?actor="
+               opener = urllib2.build_opener()
+               result = opener.open(request)
 
-           #parse json
-           jsondoc = json.load(result)#json load result from the request url
-           movie = jsondoc['show_title']
-           movie_cast = jsondoc['show_cast'][0, 1]
-           movie_director = jsondoc['director']
-           movie_category = jsondoc ['category']
-           movie_summary = jsondoc ['summary']
-           movie_poster = jsondoc['poster']
-           self.response.write("Movie " + movie + "Cast " + movie_cast + "Director " + movie_director + "<br/>" + "Category" + movie_category + "Summary" + movie_summary + "<br/>" + movie_poster)
+               #parse json
+               jsondoc = json.load(result)#json load result
+               movie = jsondoc['show_title']
+               movie_cast = jsondoc['show_cast']
+               movie_director = jsondoc['director']
+               movie_category = jsondoc ['category']
+               movie_summary = jsondoc ['summary']
+               movie_year = jsondoc['release_year']
+               self.response.write("Movie:   " + movie   + "<br/>" + "Cast:   " + movie_cast  + "<br/>" + "Director:    " + movie_director + "<br/>" + "Category:   " + movie_category + "<br/>" +  "Summary:    " + movie_summary + "<br/>" "Year   "  + movie_year)
 
-        #else:
-          #self.response.write(view.head + view.body + view.close)
+           else:
+               self.response.write(view.head + view.body + view.close)
 
 
 app = webapp2.WSGIApplication([

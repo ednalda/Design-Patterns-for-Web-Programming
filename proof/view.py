@@ -3,7 +3,7 @@
 #Course:Design Patterns for Web Programming
 #Instructor: Rebecca Carroll
 
-class AppView(object):
+class AppView(object):#superclass
     def __init__(self):
         self.title = "MovieNight!"
         self.css = "css/style.css"
