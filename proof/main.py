@@ -30,10 +30,7 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(view.print_out_form())
         #get information from urllib2 library to request the url
 
-
         if self.request.GET: #if is a request look for key=actor return show_title, movie_cast, movie_director, and movie_poster of the actor requested.
-
-           if self.request.GET:
                title = self.request.GET['title']#if the user request a movie title that is found, the result will be open.
                url = "http://netflixroulette.net/api/api.php?title=" + title
                request = urllib2.Request(url)  #variable request value: python class library request url "http://netflixroulette.net/api/api.php?actor="
@@ -50,10 +47,13 @@ class MainHandler(webapp2.RequestHandler):
                movie_year = jsondoc['release_year']
                self.response.write("Movie:   " + movie   + "<br/>" + "Cast:   " + movie_cast  + "<br/>" + "Director:    " + movie_director + "<br/>" + "Category:   " + movie_category + "<br/>" +  "Summary:    " + movie_summary + "<br/>" "Year   "  + movie_year)
 
-           elif self.request.GET:
-              title = self.request.GET['title']
-              url = "http://netflixroulette.net/api/api.php?title=" != title
-              self.response.write('Please, enter another movie')
+
+        elif self.request.GET:
+             title = self.request.GET['title']
+             url = "http://netflixroulette.net/api/api.php?title=" != title
+             self.response.write('Please, enter another movie')
+
+
 
 
 
