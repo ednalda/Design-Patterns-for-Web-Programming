@@ -3,6 +3,8 @@
 #Course:Design Patterns for Web Programming
 #Instructor: Rebecca Carroll
 
+
+#MVC = v(view)
 class AppView(object):#superclass
     def __init__(self):
         self.title = "MovieNight!"
@@ -28,14 +30,7 @@ class AppView(object):#superclass
                         </div>
 
                       '''
-        #self.query ='''
-                   #<h3>Movie: <p>self.query.show_title</p></h3>
-                   #<h3>Cast:  <p>self.query.show_cast</p></h3>
-                   #<h3>Director: <p>self.query.director</p></h3>
-                   #<h3>Director: <p>self.query.category</p></h3>
-                   #<h3>Director: <p>self.query.summary</p></h3>
-                   #<p>self.query.poster</p>
-        # '''
+
         self.close = """
 
 
