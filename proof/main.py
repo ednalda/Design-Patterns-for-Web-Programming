@@ -24,16 +24,17 @@ import json
 from collect import AppForm
 
 class MainHandler(webapp2.RequestHandler):
-    def get(self):
+    def get(self):#request data to return on html
         view = AppForm()  #AppForm subclass inherits everything (method, variable) from the superclass View
-        view.inputs = [['title', 'text', 'movie'],['submit','Submit']]  #array of inputs can be reuse
-        self.response.write(view.print_out_form())
+        view.inputs = [['title', 'text', 'movie'],['submit','Submit']]  #user input movie title
+        self.response.write(view.print_out_form())#respond user request
         #get information from urllib2 library to request the url
 
-        if self.request.GET: #if is a request look for key=actor return show_title, movie_cast, movie_director, and movie_poster of the actor requested.
+        if self.request.GET:
+           if self.request.GET: #if is a request look for key=title return show_title, movie_cast, movie_director, and release year of the movie requested.
                title = self.request.GET['title']#if the user request a movie title that is found, the result will be open.
-               url = "http://netflixroulette.net/api/api.php?title=" + title
-               request = urllib2.Request(url)  #variable request value: python class library request url "http://netflixroulette.net/api/api.php?actor="
+               url = "http://netflixroulette.net/api/api.php?title=" + title#api address requested
+               request = urllib2.Request(url)  #variable request value: python class library request url "http://netflixroulette.net/api/api.php?title="
                opener = urllib2.build_opener()
                result = opener.open(request)
 
@@ -47,11 +48,10 @@ class MainHandler(webapp2.RequestHandler):
                movie_year = jsondoc['release_year']
                self.response.write("Movie:   " + movie   + "<br/>" + "Cast:   " + movie_cast  + "<br/>" + "Director:    " + movie_director + "<br/>" + "Category:   " + movie_category + "<br/>" +  "Summary:    " + movie_summary + "<br/>" "Year   "  + movie_year)
 
+           else:#if user do not enter right movie title, message will return
+               self.response.write('Please, enter another movie')
 
-        elif self.request.GET:
-             title = self.request.GET['title']
-             url = "http://netflixroulette.net/api/api.php?title=" != title
-             self.response.write('Please, enter another movie')
+
 
 
 
