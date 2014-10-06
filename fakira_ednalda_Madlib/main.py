@@ -21,3 +21,8 @@ books.append("Picking Cotton") #insert a new book to the end of the array
 print books [0]#choose which book to print by the position on the array
 
 
+# creatin a dictionary object for types of food
+food = dict() 
+food = {"fruit":"orange", "vegetable" : "spinach"}
+print food["vegetable"]
+
