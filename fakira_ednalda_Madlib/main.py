@@ -41,3 +41,13 @@ print "Inventory result is  " + str(diningTable) #to print message + variable di
 
 
 
+#2 conditional
+#checking how life is good!
+grade = 100 #top grade in class
+if  grade > 90: #if grade is more than 90, print variable college
+    college = "nice"
+    print "This" + college + "is coll!"
+else: #if not the condition above, print "No cool."
+	print "No cool."
+
+	
