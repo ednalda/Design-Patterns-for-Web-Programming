@@ -50,4 +50,16 @@ if  grade > 90: #if grade is more than 90, print variable college
 else: #if not the condition above, print "No cool."
 	print "No cool."
 
-	
+	or
+salary = 250 #top salary
+if  salary > 200: #if salary is more than $200,000 print variable life
+	life = "good"
+	print "My life is" + life 
+
+elif salary > 80 #if salary is more than $80,000 print "My lif is ok"
+	print "My life is ok"
+else: #if none the conditions above print "I need to go back to school."
+	print "I need to go back to school."
+
+
+
