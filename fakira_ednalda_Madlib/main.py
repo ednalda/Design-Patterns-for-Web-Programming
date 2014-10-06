@@ -33,3 +33,11 @@ current_year = 2014 #variable that holds the end school year
 howLong = school_start - current_year #variable that holds the operation to calculate how long to finish school
 print "How long to graduate  " + str(howLong) + "years" 
 
+#calculating iventory
+chair = 20
+table = 5
+diningTable = chair * table #variable that calculates how many dining room sets
+print "Inventory result is  " + str(diningTable) #to print message + variable diningTable, strings "chair" and "table" need to be specified
+
+
+
