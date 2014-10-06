@@ -15,3 +15,9 @@ message = message.format (**locals()) #to accept all locall format
 print message #print variable message
 
 
+#array
+books = ["The Giver", "Violet are Blue"]
+books.append("Picking Cotton") #insert a new book to the end of the array
+print books [0]#choose which book to print by the position on the array
+
+
