@@ -72,4 +72,8 @@ def calcArea(h,w):#function t calculate the area of a house
 	print "My house is " + str(a) + "sqft"
 
 
-
+#WHILE LOOP
+a = 0 #Start variable a=0
+while a<20: #count how many pages a user reads untill reach 19 pages. 
+print "The count is", a
+a = a+1 #add next page 
