@@ -26,3 +26,10 @@ food = dict()
 food = {"fruit":"orange", "vegetable" : "spinach"}
 print food["vegetable"]
 
+#2 operation
+#calculating how long to finish school
+school_start = 2000 #variable that holds the start school year
+current_year = 2014 #variable that holds the end school year
+howLong = school_start - current_year #variable that holds the operation to calculate how long to finish school
+print "How long to graduate  " + str(howLong) + "years" 
+
