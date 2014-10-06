@@ -63,3 +63,13 @@ else: #if none the conditions above print "I need to go back to school."
 
 
 
+#FUNCTION
+x=4 # empty land
+def calcArea(h,w):#function t calculate the area of a house
+	area = h * w #hight * width
+	return area + x #return total house area occupied 
+	a = calcArea(50,40);#values of h and w
+	print "My house is " + str(a) + "sqft"
+
+
+
